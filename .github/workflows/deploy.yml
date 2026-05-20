@@ -1,31 +1,51 @@
-name: Example workflow for S3 Deploy
-on: [push]
+name: Deploy Static Website to S3
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Allows manual triggering
+
+# OIDC permissions for keyless authentication
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
-  run:
+  deploy:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    
     steps:
-      - uses: actions/checkout@v5
-        with:
-          persist-credentials: false
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build
-        run: yarn build
-
-      - name: Deploy
-        uses: reggionick/s3-deploy@v4
-        with:
-          folder: build
-          bucket: ${{ secrets.S3_BUCKET }}
-          bucket-region: ${{ secrets.S3_BUCKET_REGION }}
-          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: /
-          delete-removed: true
-          no-cache: true
-          private: true
-          files-to-include: '{.*/**,**}'
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    # No build step needed for this simple static website
+    # Just update the deployment timestamp in the JavaScript file
+    - name: Update deployment timestamp
+      run: |
+        echo "// Updating timestamp for deployment on $(date)" >> js/script.js
+        echo "// Deployment ID: ${{ github.run_id }}" >> js/script.js
+      
+    # # Configure AWS credentials
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: "us-east-1"
+    
+    # OIDC/IRSA Authentication - No more access keys!
+    # - name: Configure AWS credentials via OIDC
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+    #     role-session-name: GitHubActions-Backend-${{ github.run_id }}
+    #     aws-region: ${{secrets.AWS_REGION }}
+    
+    # Deploy to S3 bucket - directly sync the repository contents
+    - name: Deploy to S3
+      run: |
+        aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }}/ \
+          --delete \
+          --exclude ".git/*" \
+          --exclude ".github/*" \
+          --exclude "README.md" 
