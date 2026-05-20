@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSIMCircle Partner — Global eSIM Plans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --orange: #ff4c0e;
+            --orange-light: #ff6a35;
+            --orange-dim: rgba(255, 76, 14, 0.12);
+            --orange-glow: rgba(255, 76, 14, 0.35);
+            --dark: #090909;
+            --dark2: #101010;
+            --dark3: #161616;
+            --card: #1c1c1c;
+            --border: #2a2a2a;
+            --border-light: #333;
+            --text: #f2ede8;
+            --text-dim: #888;
+            --text-muted: #444;
+            --radius: 14px;
+            --radius-sm: 8px;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            height: 64px;
+            background: rgba(9, 9, 9, 0.9);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .nav-logo-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo-name span {
+            color: var(--orange);
+        }
+
+        .nav-logo-badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--orange);
+            background: var(--orange-dim);
+            border: 1px solid rgba(255, 76, 14, 0.3);
+            padding: 2px 7px;
+            border-radius: 100px;
+            line-height: 1.6;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-cta {
+            background: var(--orange) !important;
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 600 !important;
+            transition: opacity .2s, transform .2s !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-dim);
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(9, 9, 9, 0.97);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            z-index: 199;
+            padding: 20px 24px;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            transition: color .2s;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--orange);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 48px 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 55% at 50% 105%, rgba(255, 76, 14, 0.28), transparent 70%),
+                radial-gradient(ellipse 40% 35% at 85% 15%, rgba(255, 76, 14, 0.1), transparent),
+                var(--dark);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 76, 14, 0.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 76, 14, 0.055) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent);
+        }
+
+        .hero-inner {
+            position: relative;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange-dim);
+            border: 1px solid rgba(255, 76, 14, 0.3);
+            color: var(--orange);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+            animation: fadeUp .6s ease both;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .4;
+                transform: scale(1.5)
+            }
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 7.5vw, 6rem);
+            font-weight: 900;
+            line-height: 1.0;
+            letter-spacing: -3px;
+            color: #fff;
+            margin-bottom: 24px;
+            animation: fadeUp .6s .08s ease both;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--orange);
+        }
+
+        .hero-sub {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 300;
+            color: var(--text-dim);
+            max-width: 500px;
+            margin: 0 auto 44px;
+            animation: fadeUp .6s .16s ease both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp .6s .24s ease both;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+            padding: 15px 34px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: 0 0 40px var(--orange-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 50px var(--orange-glow);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            padding: 15px 34px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-light);
+            transition: border-color .2s, color .2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--text-dim);
+            color: #fff;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 56px;
+            justify-content: center;
+            margin-top: 68px;
+            animation: fadeUp .6s .32s ease both;
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── TRUST STRIP ── */
+        .trust {
+            background: var(--dark2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 44px 48px;
+        }
+
+        .trust-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .trust-ico {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .trust-text strong {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .trust-text span {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        /* ── SECTION SHARED ── */
+        section {
+            padding: 88px 48px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sec-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .sec-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -1.2px;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .sec-sub {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            max-width: 460px;
+            font-weight: 300;
+        }
+
+        /* ── PLANS ── */
+        .plans-section {
+            background: var(--dark2);
+        }
+
+        .plans-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .plan-card {
+            background: var(--dark3);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .25s, transform .25s;
+        }
+
+        .plan-card:hover {
+            border-color: rgba(255, 76, 14, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .plan-card.featured {
+            border-color: var(--orange);
+            background: linear-gradient(145deg, #180d00, var(--dark3));
+        }
+
+        .plan-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--orange), transparent);
+        }
+
+        .plan-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+        }
+
+        .plan-tag.hot {
+            background: var(--orange);
+            color: #fff;
+        }
+
+        .plan-tag.std {
+            background: var(--border);
+            color: var(--text-dim);
+        }
+
+        .plan-name {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .plan-desc {
+            color: var(--text-dim);
+            font-size: 0.875rem;
+            margin-bottom: 28px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .plan-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: 800;
+            width: 18px;
+            height: 18px;
+            background: var(--orange-dim);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 0.65rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── DESTINATIONS ── */
+        .destinations-section {
+            background: var(--dark);
+        }
+
+        .dest-header {
+            margin-bottom: 36px;
+        }
+
+        .dest-search-wrap {
+            position: relative;
+            margin-bottom: 28px;
+            max-width: 420px;
+        }
+
+        .dest-search-wrap svg {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        #destSearch {
+            width: 100%;
+            padding: 13px 16px 13px 44px;
+            background: var(--dark3);
+            border: 1px solid var(--border-light);
+            border-radius: 100px;
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 400;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        #destSearch::placeholder {
+            color: var(--text-muted);
+        }
+
+        #destSearch:focus {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px var(--orange-dim);
+        }
+
+        .dest-count {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        #destCountNum {
+            color: var(--orange);
+            font-weight: 700;
+        }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 8px;
+        }
+
+        .dest-chip {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 11px 14px;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: all .18s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .dest-chip:hover {
+            border-color: var(--orange);
+            color: #fff;
+            background: var(--orange-dim);
+        }
+
+        .dest-chip .flag {
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .dest-chip .label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .dest-empty {
+            grid-column: 1/-1;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 40px 0;
+        }
+
+        .dest-footer {
+            margin-top: 32px;
+        }
+
+        .dest-all-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: gap .2s;
+        }
+
+        .dest-all-link:hover {
+            gap: 12px;
+        }
+
+        /* ── HOW IT WORKS ── */
+        .how-section {
+            background: var(--dark2);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .step {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            position: relative;
+        }
+
+        .step-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--orange);
+            opacity: 0.8;
+            line-height: 1;
+            margin-bottom: 12px;
+            letter-spacing: -2px;
+        }
+
+        .step-icon {
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        /* ── QUICK LINKS ── */
+        .links-section {
+            background: var(--dark);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .link-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-decoration: none;
+            transition: all .22s;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(255, 76, 14, 0.08);
+        }
+
+        .link-icon {
+            font-size: 1.6rem;
+            width: 48px;
+            height: 48px;
+            background: var(--orange-dim);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+        }
+
+        .link-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .link-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            line-height: 1.65;
+            font-weight: 300;
+            flex: 1;
+        }
+
+        .link-arrow {
+            color: var(--orange);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 4px;
+            transition: transform .2s;
+        }
+
+        .link-card:hover .link-arrow {
+            transform: translateX(5px);
+        }
+
+        /* ── AFFILIATE ── */
+        .affiliate-wrap {
+            padding: 0 48px 88px;
+        }
+
+        .affiliate-banner {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #160900, #111);
+            border: 1px solid var(--orange);
+            border-radius: 20px;
+            padding: 52px 60px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
+
+        .affiliate-banner::after {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(255, 76, 14, 0.2), transparent 70%);
+        }
+
+        .affiliate-banner h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.8px;
+            margin-bottom: 6px;
+        }
+
+        .affiliate-banner p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            max-width: 420px;
+            font-weight: 300;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid var(--border);
+            padding: 56px 48px 36px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 44px;
+        }
+
+        .footer-logo-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            text-decoration: none;
+            margin-bottom: 14px;
+        }
+
+        .footer-logo-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .footer-logo-name span {
+            color: var(--orange);
+        }
+
+        .footer-logo-badge {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--orange);
+            background: var(--orange-dim);
+            border: 1px solid rgba(255, 76, 14, 0.3);
+            padding: 2px 6px;
+            border-radius: 100px;
+        }
+
+        .footer-tagline {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.83rem;
+            margin-bottom: 10px;
+            transition: color .2s;
+            font-weight: 400;
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .footer-bottom span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .footer-disclaimer {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 3px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 64px 20px;
+            }
+
+            .hero {
+                padding: 90px 20px 60px;
+            }
+
+            h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .hero-stats {
+                gap: 28px;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust {
+                padding: 32px 20px;
+            }
+
+            .trust-inner {
+                gap: 24px;
+            }
+
+            .affiliate-wrap {
+                padding: 0 20px 64px;
+            }
+
+            .affiliate-banner {
+                padding: 36px 28px;
+            }
+
+            footer {
+                padding: 48px 20px 28px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .dest-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+
+            .plans-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .affiliate-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="https://esimcircle.com" class="nav-logo" target="_blank" rel="noopener">
+            <span class="nav-logo-name">eSIM<span>Circle</span></span>
+            <span class="nav-logo-badge">Partner</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://esimcircle.com/installation-guide/" target="_blank" rel="noopener">Install Guide</a>
+            </li>
+            <li><a href="https://esimcircle.com/top-up/" target="_blank" rel="noopener">Top-Up</a></li>
+            <li><a href="https://esimcircle.com/compatible-device-list" target="_blank" rel="noopener">Devices</a></li>
+            <li><a href="https://esimcircle.com/help-center" target="_blank" rel="noopener">Help</a></li>
+            <li><a href="https://esimcircle.com/shop" target="_blank" rel="noopener" class="nav-cta">Get eSIM</a></li>
+        </ul>
+        <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="https://esimcircle.com/installation-guide/" target="_blank" rel="noopener">Install Guide</a>
+        <a href="https://esimcircle.com/top-up/" target="_blank" rel="noopener">Top-Up</a>
+        <a href="https://esimcircle.com/compatible-device-list" target="_blank" rel="noopener">Supported Devices</a>
+        <a href="https://esimcircle.com/help-center" target="_blank" rel="noopener">Help Center</a>
+        <a href="https://esimcircle.com/affiliate" target="_blank" rel="noopener">Affiliate Program</a>
+        <a href="https://esimcircle.com/shop" target="_blank" rel="noopener"
+            style="color:var(--orange);font-weight:700;">Get eSIM →</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-badge">5G Coverage · 200+ Destinations</div>
+            <h1>Travel Without<br><em>Limits</em></h1>
+            <p class="hero-sub">Instant digital SIM cards for travelers. No physical swap, no roaming surprises — just
+                reliable 5G data the moment you land.</p>
+            <div class="hero-btns">
+                <a href="https://esimcircle.com/shop" target="_blank" rel="noopener" class="btn-primary">Browse
+                    Plans</a>
+                <a href="#coverage" class="btn-ghost">View Coverage →</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-num">200+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div>
+                    <div class="stat-num">5G</div>
+                    <div class="stat-label">Speed</div>
+                </div>
+                <div>
+                    <div class="stat-num">365</div>
+                    <div class="stat-label">Days Max</div>
+                </div>
+                <div>
+                    <div class="stat-num">QR</div>
+                    <div class="stat-label">Instant Setup</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST -->
+    <div class="trust">
+        <div class="trust-inner">
+            <div class="trust-item">
+                <span class="trust-ico">⚡</span>
+                <div class="trust-text">
+                    <strong>Instant Activation</strong>
+                    <span>Ready within minutes of purchase</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <span class="trust-ico">🔒</span>
+                <div class="trust-text">
+                    <strong>No Physical SIM Needed</strong>
+                    <span>Install via QR code — 100% digital</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <span class="trust-ico">🔋</span>
+                <div class="trust-text">
+                    <strong>Top-Up Anytime</strong>
+                    <span>Extend data without a new eSIM</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <span class="trust-ico">📱</span>
+                <div class="trust-text">
+                    <strong>Wide Device Support</strong>
+                    <span>iPhone, Samsung, Pixel & more</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLANS -->
+    <section class="plans-section">
+        <div class="container">
+            <div class="plans-header">
+                <div>
+                    <div class="sec-label">Plan Types</div>
+                    <h2 class="sec-title">Two ways to stay<br>connected</h2>
+                </div>
+                <p class="sec-sub">Short trip or extended stay — there's a plan sized for every kind of traveler.</p>
+            </div>
+            <div class="plans-grid">
+                <div class="plan-card featured">
+                    <span class="plan-tag hot">Most Flexible</span>
+                    <div class="plan-name">FLEX365</div>
+                    <p class="plan-desc">The ultimate plan for digital nomads and long-stay travelers. Customize
+                        duration from 1 to 365 days with truly unlimited data.</p>
+                    <ul class="plan-features">
+                        <li>Unlimited data — no caps, ever</li>
+                        <li>5G speeds where available</li>
+                        <li>Choose 1 to 365 days validity</li>
+                        <li>Set exactly when the plan starts</li>
+                        <li>Ideal for remote work &amp; extended trips</li>
+                    </ul>
+                </div>
+                <div class="plan-card">
+                    <span class="plan-tag std">Standard</span>
+                    <div class="plan-name">Standard Plans</div>
+                    <p class="plan-desc">Fast and affordable data packages for short trips. Grab a plan, go, and top up
+                        whenever more data is needed.</p>
+                    <ul class="plan-features">
+                        <li>5G speeds where available</li>
+                        <li>Multiple data size options</li>
+                        <li>Top-up without buying a new eSIM</li>
+                        <li>Great value for shorter travel</li>
+                        <li>Available for 200+ destinations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVERAGE / DESTINATIONS -->
+    <section class="destinations-section" id="coverage">
+        <div class="container">
+            <div class="dest-header">
+                <div class="sec-label">Coverage</div>
+                <h2 class="sec-title">200+ Destinations</h2>
+                <p class="sec-sub" style="margin-bottom:28px;">eSIM plans available across the globe — search below to
+                    find yours.</p>
+
+                <div class="dest-search-wrap">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" id="destSearch" placeholder="Search destinations…" autocomplete="off"
+                        oninput="filterDest(this.value)">
+                </div>
+                <div class="dest-count">Showing <span id="destCountNum">0</span> destinations</div>
+            </div>
+
+            <div class="dest-grid" id="destGrid"></div>
+
+            <div class="dest-footer">
+                <a href="https://esimcircle.com/shop" target="_blank" rel="noopener" class="dest-all-link">
+                    View all plans on eSIMCircle →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+        <div class="container">
+            <div class="sec-label">Setup in minutes</div>
+            <h2 class="sec-title">How it works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <span class="step-icon">🌍</span>
+                    <h3>Choose a Destination</h3>
+                    <p>Browse 200+ countries and regions. Pick a Standard or FLEX365 plan that fits the trip length and
+                        data needs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <span class="step-icon">📲</span>
+                    <h3>Install via QR Code</h3>
+                    <p>After purchase, scan the QR code to install the eSIM. No store visit, no physical card — done in
+                        under 5 minutes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <span class="step-icon">✈️</span>
+                    <h3>Connect &amp; Go</h3>
+                    <p>Activate on arrival and enjoy instant 5G. Need more data? Top up anytime from anywhere without
+                        buying a new eSIM.</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:44px;">
+                <a href="https://esimcircle.com/installation-guide/" target="_blank" rel="noopener"
+                    class="btn-primary">View Full Installation Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="links-section">
+        <div class="container">
+            <div class="sec-label">Resources</div>
+            <h2 class="sec-title">Everything you need</h2>
+            <div class="links-grid">
+                <a href="https://esimcircle.com/installation-guide/" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon">📥</div>
+                    <div class="link-title">Installation Guide</div>
+                    <p class="link-desc">Step-by-step setup instructions for any supported device.</p>
+                    <div class="link-arrow">→</div>
+                </a>
+                <a href="https://esimcircle.com/top-up/" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon">🔋</div>
+                    <div class="link-title">Top-Up Data</div>
+                    <p class="link-desc">Add more data to an existing eSIM without purchasing a new one.</p>
+                    <div class="link-arrow">→</div>
+                </a>
+                <a href="https://esimcircle.com/compatible-device-list" target="_blank" rel="noopener"
+                    class="link-card">
+                    <div class="link-icon">📱</div>
+                    <div class="link-title">Supported Devices</div>
+                    <p class="link-desc">Check if your iPhone, Samsung, Pixel or other device is compatible.</p>
+                    <div class="link-arrow">→</div>
+                </a>
+                <a href="https://esimcircle.com/help-center" target="_blank" rel="noopener" class="link-card">
+                    <div class="link-icon">💬</div>
+                    <div class="link-title">Help Center</div>
+                    <p class="link-desc">FAQs and troubleshooting — get answers fast.</p>
+                    <div class="link-arrow">→</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AFFILIATE -->
+    <div class="affiliate-wrap">
+        <div class="affiliate-banner">
+            <div>
+                <h2>Earn with eSIMCircle</h2>
+                <p>Join the affiliate program and earn commission on every referred sale. Share with an audience and get
+                    rewarded every time they connect.</p>
+            </div>
+            <a href="https://esimcircle.com/affiliate" target="_blank" rel="noopener" class="btn-primary"
+                style="white-space:nowrap;flex-shrink:0;position:relative;z-index:1;">
+                Join Affiliate Program →
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <a href="https://esimcircle.com" target="_blank" rel="noopener" class="footer-logo-wrap">
+                    <span class="footer-logo-name">eSIM<span>Circle</span></span>
+                    <span class="footer-logo-badge">Partner</span>
+                </a>
+                <p class="footer-tagline">Instant, reliable eSIM data plans for travelers and remote workers across 200+
+                    countries worldwide.</p>
+                <p class="footer-disclaimer" style="margin-top:12px;">This is an independent partner site, not operated
+                    by eSIMCircle.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Regional Plans</h4>
+                <a href="https://esimcircle.com/esims/europe-esim-40-areas/" target="_blank" rel="noopener">Europe
+                    eSIM</a>
+                <a href="https://esimcircle.com/esims/asia-esim-20-areas/" target="_blank" rel="noopener">Asia eSIM</a>
+                <a href="https://esimcircle.com/esims/global-esim-120-areas/" target="_blank" rel="noopener">Global
+                    eSIM</a>
+                <a href="https://esimcircle.com/esims/middle-east-esim/" target="_blank" rel="noopener">Middle East
+                    eSIM</a>
+                <a href="https://esimcircle.com/esims/caribbean-esim-20-areas/" target="_blank" rel="noopener">Caribbean
+                    eSIM</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="https://esimcircle.com/installation-guide/" target="_blank" rel="noopener">Installation
+                    Guide</a>
+                <a href="https://esimcircle.com/top-up/" target="_blank" rel="noopener">Top-Up</a>
+                <a href="https://esimcircle.com/compatible-device-list" target="_blank" rel="noopener">Supported
+                    Devices</a>
+                <a href="https://esimcircle.com/help-center" target="_blank" rel="noopener">Help Center</a>
+            </div>
+            <div class="footer-col">
+                <h4>Partner</h4>
+                <a href="https://esimcircle.com/affiliate" target="_blank" rel="noopener">Affiliate Program</a>
+                <a href="https://esimcircle.com/shop" target="_blank" rel="noopener">Shop All Plans</a>
+                <a href="https://esimcircle.com" target="_blank" rel="noopener">eSIMCircle Official</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 — Independent partner site for eSIMCircle</span>
+            <span>Stay connected, everywhere.</span>
+        </div>
+    </footer>
+
+    <script>
+        const ALL_DESTINATIONS = [
+            { name: "Puerto Rico", flag: "🇵🇷", url: "https://esimcircle.com/esims/puerto-rico-esim/" },
+            { name: "Mali", flag: "🇲🇱", url: "https://esimcircle.com/esims/mali-esim/" },
+            { name: "Central African Republic", flag: "🇨🇫", url: "https://esimcircle.com/esims/central-african-republic-esim/" },
+            { name: "Liberia", flag: "🇱🇷", url: "https://esimcircle.com/esims/liberia-esim/" },
+            { name: "Africa (25 Areas)", flag: "🌍", url: "https://esimcircle.com/esims/africa-esim-25-areas/" },
+            { name: "Liechtenstein", flag: "🇱🇮", url: "https://esimcircle.com/esims/liechtenstein-esim/" },
+            { name: "Middle East", flag: "🕌", url: "https://esimcircle.com/esims/middle-east-esim/" },
+            { name: "Mozambique", flag: "🇲🇿", url: "https://esimcircle.com/esims/mozambique-esim/" },
+            { name: "Guernsey", flag: "🇬🇬", url: "https://esimcircle.com/esims/guernsey-esim/" },
+            { name: "South America (15 Areas)", flag: "🌎", url: "https://esimcircle.com/esims/south-america-esim-15-areas/" },
+            { name: "Madagascar", flag: "🇲🇬", url: "https://esimcircle.com/esims/madagascar-esim/" },
+            { name: "Jamaica", flag: "🇯🇲", url: "https://esimcircle.com/esims/jamaica-esim/" },
+            { name: "Asia (20 Areas)", flag: "🌏", url: "https://esimcircle.com/esims/asia-esim-20-areas/" },
+            { name: "Middle East & North Africa", flag: "🕌", url: "https://esimcircle.com/esims/middle-east-north-africa/" },
+            { name: "Singapore + Malaysia", flag: "🇸🇬", url: "https://esimcircle.com/esims/singapore-malaysia-esim/" },
+            { name: "Reunion", flag: "🇷🇪", url: "https://esimcircle.com/esims/reunion-esim/" },
+            { name: "Singapore", flag: "🇸🇬", url: "https://esimcircle.com/esims/singapore-esim/" },
+            { name: "Isle of Man", flag: "🇮🇲", url: "https://esimcircle.com/esims/isle-of-man-esim/" },
+            { name: "Russia", flag: "🇷🇺", url: "https://esimcircle.com/esims/russia-esim/" },
+            { name: "Jersey", flag: "🇯🇪", url: "https://esimcircle.com/esims/jersey-esim/" },
+            { name: "Malta", flag: "🇲🇹", url: "https://esimcircle.com/esims/malta-esim/" },
+            { name: "Turkey", flag: "🇹🇷", url: "https://esimcircle.com/esims/turkey-esim/" },
+            { name: "USA + Canada", flag: "🇺🇸", url: "https://esimcircle.com/esims/usa-canada-esim/" },
+            { name: "Cambodia", flag: "🇰🇭", url: "https://esimcircle.com/esims/cambodia-esim/" },
+            { name: "Ukraine", flag: "🇺🇦", url: "https://esimcircle.com/esims/ukraine-esim/" },
+            { name: "Estonia", flag: "🇪🇪", url: "https://esimcircle.com/esims/estonia-esim/" },
+            { name: "Lithuania", flag: "🇱🇹", url: "https://esimcircle.com/esims/lithuania-esim/" },
+            { name: "Luxembourg", flag: "🇱🇺", url: "https://esimcircle.com/esims/luxembourg-esim/" },
+            { name: "Slovenia", flag: "🇸🇮", url: "https://esimcircle.com/esims/slovenia-esim/" },
+            { name: "Balkans", flag: "🌍", url: "https://esimcircle.com/esims/balkans-esim/" },
+            { name: "Europe + Morocco (40 Areas)", flag: "🌍", url: "https://esimcircle.com/esims/europe-40-areas-morocco-esim/" },
+            { name: "Kazakhstan", flag: "🇰🇿", url: "https://esimcircle.com/esims/kazakhstan-esim/" },
+            { name: "Kyrgyzstan", flag: "🇰🇬", url: "https://esimcircle.com/esims/kyrgyzstan-esim/" },
+            { name: "Moldova", flag: "🇲🇩", url: "https://esimcircle.com/esims/moldova-esim/" },
+            { name: "Montenegro", flag: "🇲🇪", url: "https://esimcircle.com/esims/montenegro-esim/" },
+            { name: "Slovakia", flag: "🇸🇰", url: "https://esimcircle.com/esims/slovakia-esim/" },
+            { name: "Uzbekistan", flag: "🇺🇿", url: "https://esimcircle.com/esims/uzbekistan-esim/" },
+            { name: "Aland Islands", flag: "🇦🇽", url: "https://esimcircle.com/esims/aland-islands-esim/" },
+            { name: "North Macedonia", flag: "🇲🇰", url: "https://esimcircle.com/esims/north-macedonia-esim/" },
+            { name: "Laos", flag: "🇱🇦", url: "https://esimcircle.com/esims/laos-esim/" },
+            { name: "Hong Kong", flag: "🇭🇰", url: "https://esimcircle.com/esims/hong-kong-esim/" },
+            { name: "China + Japan + South Korea", flag: "🌏", url: "https://esimcircle.com/esims/china-mainland-japan-south-korea-esim/" },
+            { name: "Austria", flag: "🇦🇹", url: "https://esimcircle.com/esims/austria-esim/" },
+            { name: "Denmark", flag: "🇩🇰", url: "https://esimcircle.com/esims/denmark-esim/" },
+            { name: "Netherlands", flag: "🇳🇱", url: "https://esimcircle.com/esims/netherlands-esim/" },
+            { name: "Italy", flag: "🇮🇹", url: "https://esimcircle.com/esims/italy-esim/" },
+            { name: "United Kingdom", flag: "🇬🇧", url: "https://esimcircle.com/esims/united-kingdom-esim/" },
+            { name: "Belgium", flag: "🇧🇪", url: "https://esimcircle.com/esims/belgium-esim/" },
+            { name: "Bulgaria", flag: "🇧🇬", url: "https://esimcircle.com/esims/bulgaria-esim/" },
+            { name: "Cyprus", flag: "🇨🇾", url: "https://esimcircle.com/esims/cyprus-esim/" },
+            { name: "Czech Republic", flag: "🇨🇿", url: "https://esimcircle.com/esims/czech-republic-esim/" },
+            { name: "Finland", flag: "🇫🇮", url: "https://esimcircle.com/esims/finland-esim/" },
+            { name: "Hungary", flag: "🇭🇺", url: "https://esimcircle.com/esims/hungary-esim/" },
+            { name: "Malaysia", flag: "🇲🇾", url: "https://esimcircle.com/esims/malaysia-esim/" },
+            { name: "Ireland", flag: "🇮🇪", url: "https://esimcircle.com/esims/ireland-esim/" },
+            { name: "Romania", flag: "🇷🇴", url: "https://esimcircle.com/esims/romania-esim/" },
+            { name: "Sweden", flag: "🇸🇪", url: "https://esimcircle.com/esims/sweden-esim/" },
+            { name: "Norway", flag: "🇳🇴", url: "https://esimcircle.com/esims/norway-esim/" },
+            { name: "South Korea", flag: "🇰🇷", url: "https://esimcircle.com/esims/south-korea-esim/" },
+            { name: "Thailand", flag: "🇹🇭", url: "https://esimcircle.com/esims/thailand-esim/" },
+            { name: "France", flag: "🇫🇷", url: "https://esimcircle.com/esims/france-esim/" },
+            { name: "Japan", flag: "🇯🇵", url: "https://esimcircle.com/esims/japan-esim/" },
+            { name: "Spain", flag: "🇪🇸", url: "https://esimcircle.com/esims/spain-esim/" },
+            { name: "Poland", flag: "🇵🇱", url: "https://esimcircle.com/esims/poland-esim/" },
+            { name: "China", flag: "🇨🇳", url: "https://esimcircle.com/esims/china-esim/" },
+            { name: "Europe (40 Areas)", flag: "🌍", url: "https://esimcircle.com/esims/europe-esim-40-areas/" },
+            { name: "Germany", flag: "🇩🇪", url: "https://esimcircle.com/esims/germany-esim/" },
+            { name: "Greece", flag: "🇬🇷", url: "https://esimcircle.com/esims/greece-esim/" },
+            { name: "Portugal", flag: "🇵🇹", url: "https://esimcircle.com/esims/portugal-esim/" },
+            { name: "Albania", flag: "🇦🇱", url: "https://esimcircle.com/esims/albania-esim/" },
+            { name: "Switzerland", flag: "🇨🇭", url: "https://esimcircle.com/esims/switzerland-esim/" },
+            { name: "Croatia", flag: "🇭🇷", url: "https://esimcircle.com/esims/croatia-esim/" },
+            { name: "Algeria", flag: "🇩🇿", url: "https://esimcircle.com/esims/algeria-esim/" },
+            { name: "Bangladesh", flag: "🇧🇩", url: "https://esimcircle.com/esims/bangladesh-esim/" },
+            { name: "DR Congo", flag: "🇨🇩", url: "https://esimcircle.com/esims/democratic-republic-of-the-congo-esim/" },
+            { name: "French Guiana", flag: "🇬🇫", url: "https://esimcircle.com/esims/french-guiana-esim/" },
+            { name: "Georgia", flag: "🇬🇪", url: "https://esimcircle.com/esims/georgia-esim/" },
+            { name: "Serbia", flag: "🇷🇸", url: "https://esimcircle.com/esims/serbia-esim/" },
+            { name: "Macao", flag: "🇲🇴", url: "https://esimcircle.com/esims/macao-esim/" },
+            { name: "New Zealand", flag: "🇳🇿", url: "https://esimcircle.com/esims/new-zealand-esim/" },
+            { name: "Sri Lanka", flag: "🇱🇰", url: "https://esimcircle.com/esims/sri-lanka-esim/" },
+            { name: "Tanzania", flag: "🇹🇿", url: "https://esimcircle.com/esims/tanzania-esim/" },
+            { name: "Vietnam", flag: "🇻🇳", url: "https://esimcircle.com/esims/vietnam-esim/" },
+            { name: "Seychelles", flag: "🇸🇨", url: "https://esimcircle.com/esims/seychelles-esim/" },
+            { name: "Armenia", flag: "🇦🇲", url: "https://esimcircle.com/esims/armenia-esim/" },
+            { name: "United States", flag: "🇺🇸", url: "https://esimcircle.com/esims/united-states-esim/" },
+            { name: "Gulf Cooperation Council", flag: "🕌", url: "https://esimcircle.com/esims/gulf-cooperation-council-esim/" },
+            { name: "Iceland", flag: "🇮🇸", url: "https://esimcircle.com/esims/iceland-esim/" },
+            { name: "Morocco", flag: "🇲🇦", url: "https://esimcircle.com/esims/morocco-esim/" },
+            { name: "Global (120 Areas)", flag: "🌐", url: "https://esimcircle.com/esims/global-esim-120-areas/" },
+            { name: "Tunisia", flag: "🇹🇳", url: "https://esimcircle.com/esims/tunisia-esim/" },
+            { name: "Colombia", flag: "🇨🇴", url: "https://esimcircle.com/esims/colombia-esim/" },
+            { name: "El Salvador", flag: "🇸🇻", url: "https://esimcircle.com/esims/el-salvador-esim/" },
+            { name: "Turks and Caicos Islands", flag: "🇹🇨", url: "https://esimcircle.com/esims/turks-and-caicos-islands-esim/" },
+            { name: "Guinea", flag: "🇬🇳", url: "https://esimcircle.com/esims/guinea-esim/" },
+            { name: "Costa Rica", flag: "🇨🇷", url: "https://esimcircle.com/esims/costa-rica-esim/" },
+            { name: "Philippines", flag: "🇵🇭", url: "https://esimcircle.com/esims/philippines-esim/" },
+            { name: "Singapore + Malaysia + Thailand", flag: "🇸🇬", url: "https://esimcircle.com/esims/singapore-malaysia-thailand-esim/" },
+            { name: "Israel", flag: "🇮🇱", url: "https://esimcircle.com/esims/israel-esim/" },
+            { name: "Cote d'Ivoire", flag: "🇨🇮", url: "https://esimcircle.com/esims/cote-divoire-esim/" },
+            { name: "UAE", flag: "🇦🇪", url: "https://esimcircle.com/esims/united-arab-emirates-esim/" },
+            { name: "Trinidad and Tobago", flag: "🇹🇹", url: "https://esimcircle.com/esims/trinidad-and-tobago-esim/" },
+            { name: "Canada", flag: "🇨🇦", url: "https://esimcircle.com/esims/canada-esim/" },
+            { name: "Azerbaijan", flag: "🇦🇿", url: "https://esimcircle.com/esims/azerbaijan-esim/" },
+            { name: "Bosnia and Herzegovina", flag: "🇧🇦", url: "https://esimcircle.com/esims/bosnia-and-herzegovina-esim/" },
+            { name: "Ghana", flag: "🇬🇭", url: "https://esimcircle.com/esims/ghana-esim/" },
+            { name: "Mongolia", flag: "🇲🇳", url: "https://esimcircle.com/esims/mongolia-esim/" },
+            { name: "SE Asia (5 Countries)", flag: "🌏", url: "https://esimcircle.com/esims/singapore-malaysia-vietnam-thailand-indonesia-esim/" },
+            { name: "Antigua and Barbuda", flag: "🇦🇬", url: "https://esimcircle.com/esims/antigua-and-barbuda-esim/" },
+            { name: "Grenada", flag: "🇬🇩", url: "https://esimcircle.com/esims/grenada-esim/" },
+            { name: "Saint Lucia", flag: "🇱🇨", url: "https://esimcircle.com/esims/saint-lucia-esim/" },
+            { name: "China + HK + Macao", flag: "🌏", url: "https://esimcircle.com/esims/china-mainland-hk-macao-esim/" },
+            { name: "Mexico", flag: "🇲🇽", url: "https://esimcircle.com/esims/mexico-esim/" },
+            { name: "Rwanda", flag: "🇷🇼", url: "https://esimcircle.com/esims/rwanda-esim/" },
+            { name: "Saint Kitts and Nevis", flag: "🇰🇳", url: "https://esimcircle.com/esims/saint-kitts-and-nevis-esim/" },
+            { name: "Virgin Islands", flag: "🇻🇮", url: "https://esimcircle.com/esims/virgin-islands-esim/" },
+            { name: "Ecuador", flag: "🇪🇨", url: "https://esimcircle.com/esims/ecuador-esim/" },
+            { name: "Fiji", flag: "🇫🇯", url: "https://esimcircle.com/esims/fiji-esim/" },
+            { name: "Montserrat", flag: "🇲🇸", url: "https://esimcircle.com/esims/montserrat-esim/" },
+            { name: "Qatar", flag: "🇶🇦", url: "https://esimcircle.com/esims/qatar-esim/" },
+            { name: "Central Asia", flag: "🌏", url: "https://esimcircle.com/esims/central-asia-esim/" },
+            { name: "Egypt", flag: "🇪🇬", url: "https://esimcircle.com/esims/egypt-esim/" },
+            { name: "Oman", flag: "🇴🇲", url: "https://esimcircle.com/esims/oman-esim/" },
+            { name: "South Africa", flag: "🇿🇦", url: "https://esimcircle.com/esims/south-africa-esim/" },
+            { name: "Nigeria", flag: "🇳🇬", url: "https://esimcircle.com/esims/nigeria-esim/" },
+            { name: "Saint Vincent and the Grenadines", flag: "🇻🇨", url: "https://esimcircle.com/esims/saint-vincent-and-the-grenadines-esim/" },
+            { name: "Bahamas", flag: "🇧🇸", url: "https://esimcircle.com/esims/bahamas-esim/" },
+            { name: "Andorra", flag: "🇦🇩", url: "https://esimcircle.com/esims/andorra-esim/" },
+            { name: "Argentina", flag: "🇦🇷", url: "https://esimcircle.com/esims/argentina-esim/" },
+            { name: "Guam", flag: "🇬🇺", url: "https://esimcircle.com/esims/guam-esim/" },
+            { name: "Faroe Islands", flag: "🇫🇴", url: "https://esimcircle.com/esims/faroe-islands-esim/" },
+            { name: "Jordan", flag: "🇯🇴", url: "https://esimcircle.com/esims/jordan-esim/" },
+            { name: "Greenland", flag: "🇬🇱", url: "https://esimcircle.com/esims/greenland-esim/" },
+            { name: "Bahrain", flag: "🇧🇭", url: "https://esimcircle.com/esims/bahrain-esim/" },
+            { name: "Brunei", flag: "🇧🇳", url: "https://esimcircle.com/esims/brunei-darussalam-esim/" },
+            { name: "Chile", flag: "🇨🇱", url: "https://esimcircle.com/esims/chile-esim/" },
+            { name: "Gibraltar", flag: "🇬🇮", url: "https://esimcircle.com/esims/gibraltar-esim/" },
+            { name: "Bolivia", flag: "🇧🇴", url: "https://esimcircle.com/esims/bolivia-esim/" },
+            { name: "Honduras", flag: "🇭🇳", url: "https://esimcircle.com/esims/honduras-esim/" },
+            { name: "Brazil", flag: "🇧🇷", url: "https://esimcircle.com/esims/brazil-esim/" },
+            { name: "Belize", flag: "🇧🇿", url: "https://esimcircle.com/esims/belize-esim/" },
+            { name: "Panama", flag: "🇵🇦", url: "https://esimcircle.com/esims/panama-esim/" },
+            { name: "India", flag: "🇮🇳", url: "https://esimcircle.com/esims/india-esim/" },
+            { name: "Kenya", flag: "🇰🇪", url: "https://esimcircle.com/esims/kenya-esim/" },
+            { name: "Eswatini", flag: "🇸🇿", url: "https://esimcircle.com/esims/eswatini-esim/" },
+            { name: "Nicaragua", flag: "🇳🇮", url: "https://esimcircle.com/esims/nicaragua-esim/" },
+            { name: "Dominican Republic", flag: "🇩🇴", url: "https://esimcircle.com/esims/dominican-republic-esim/" },
+            { name: "North America (3 Areas)", flag: "🌎", url: "https://esimcircle.com/esims/north-america-esim-3-areas/" },
+            { name: "Paraguay", flag: "🇵🇾", url: "https://esimcircle.com/esims/paraguay-esim/" },
+            { name: "Peru", flag: "🇵🇪", url: "https://esimcircle.com/esims/peru-esim/" },
+            { name: "Australia + New Zealand", flag: "🇦🇺", url: "https://esimcircle.com/esims/australia-new-zealand-esim/" },
+            { name: "Uruguay", flag: "🇺🇾", url: "https://esimcircle.com/esims/uruguay-esim/" },
+            { name: "Anguilla", flag: "🇦🇮", url: "https://esimcircle.com/esims/anguilla-esim/" },
+            { name: "Guatemala", flag: "🇬🇹", url: "https://esimcircle.com/esims/guatemala-esim/" },
+            { name: "Malawi", flag: "🇲🇼", url: "https://esimcircle.com/esims/malawi-esim/" },
+            { name: "Nepal", flag: "🇳🇵", url: "https://esimcircle.com/esims/nepal-esim/" },
+            { name: "Chad", flag: "🇹🇩", url: "https://esimcircle.com/esims/chad-esim/" },
+            { name: "Zambia", flag: "🇿🇲", url: "https://esimcircle.com/esims/zambia-esim/" },
+            { name: "Guadeloupe", flag: "🇬🇵", url: "https://esimcircle.com/esims/guadeloupe-esim/" },
+            { name: "Maldives", flag: "🇲🇻", url: "https://esimcircle.com/esims/maldives-esim/" },
+            { name: "Gabon", flag: "🇬🇦", url: "https://esimcircle.com/esims/gabon-esim/" },
+            { name: "Benin", flag: "🇧🇯", url: "https://esimcircle.com/esims/benin-esim/" },
+            { name: "Congo", flag: "🇨🇬", url: "https://esimcircle.com/esims/congo-esim/" },
+            { name: "Niger", flag: "🇳🇪", url: "https://esimcircle.com/esims/niger-esim/" },
+            { name: "Uganda", flag: "🇺🇬", url: "https://esimcircle.com/esims/uganda-esim/" },
+            { name: "Burkina Faso", flag: "🇧🇫", url: "https://esimcircle.com/esims/burkina-faso-esim/" },
+            { name: "Botswana", flag: "🇧🇼", url: "https://esimcircle.com/esims/botswana-esim/" },
+            { name: "Sierra Leone", flag: "🇸🇱", url: "https://esimcircle.com/esims/sierra-leone-esim/" },
+            { name: "Guinea-Bissau", flag: "🇬🇼", url: "https://esimcircle.com/esims/guinea-bissau-esim/" },
+            { name: "Monaco", flag: "🇲🇨", url: "https://esimcircle.com/esims/monaco-esim/" },
+            { name: "French Polynesia", flag: "🇵🇫", url: "https://esimcircle.com/esims/french-polynesia-esim/" },
+            { name: "Mauritius", flag: "🇲🇺", url: "https://esimcircle.com/esims/mauritius-esim/" },
+            { name: "Cape Verde", flag: "🇨🇻", url: "https://esimcircle.com/esims/cape-verde-esim/" },
+            { name: "Haiti", flag: "🇭🇹", url: "https://esimcircle.com/esims/haiti-esim/" },
+            { name: "Caribbean (20 Areas)", flag: "🏝️", url: "https://esimcircle.com/esims/caribbean-esim-20-areas/" },
+            { name: "Samoa", flag: "🇼🇸", url: "https://esimcircle.com/esims/samoa-esim/" },
+            { name: "Dominica", flag: "🇩🇲", url: "https://esimcircle.com/esims/dominica-esim/" },
+            { name: "Curacao", flag: "🇨🇼", url: "https://esimcircle.com/esims/curacao-esim/" },
+            { name: "Cameroon", flag: "🇨🇲", url: "https://esimcircle.com/esims/cameroon-esim/" },
+            { name: "Senegal", flag: "🇸🇳", url: "https://esimcircle.com/esims/senegal-esim/" },
+            { name: "Barbados", flag: "🇧🇧", url: "https://esimcircle.com/esims/barbados-esim/" },
+            { name: "Bermuda", flag: "🇧🇲", url: "https://esimcircle.com/esims/bermuda-esim/" },
+            { name: "Guyana", flag: "🇬🇾", url: "https://esimcircle.com/esims/guyana-esim/" },
+            { name: "Cayman Islands", flag: "🇰🇾", url: "https://esimcircle.com/esims/cayman-islands-esim/" },
+            { name: "Suriname", flag: "🇸🇷", url: "https://esimcircle.com/esims/suriname-esim/" },
+            { name: "Bhutan", flag: "🇧🇹", url: "https://esimcircle.com/esims/bhutan-esim/" },
+            { name: "Gambia", flag: "🇬🇲", url: "https://esimcircle.com/esims/gambia-esim/" },
+            { name: "Angola", flag: "🇦🇴", url: "https://esimcircle.com/esims/angola-esim/" },
+            { name: "Libya", flag: "🇱🇾", url: "https://esimcircle.com/esims/libya-esim/" },
+            { name: "Indonesia", flag: "🇮🇩", url: "https://esimcircle.com/esims/indonesia-esim/" },
+            { name: "Australia", flag: "🇦🇺", url: "https://esimcircle.com/esims/australia-esim/" },
+            { name: "Saudi Arabia", flag: "🇸🇦", url: "https://esimcircle.com/esims/saudi-arabia-esim/" },
+        ];
+
+        // Sort alphabetically
+        ALL_DESTINATIONS.sort((a, b) => a.name.localeCompare(b.name));
+
+        const grid = document.getElementById('destGrid');
+        const countEl = document.getElementById('destCountNum');
+
+        function renderDest(list) {
+            if (list.length === 0) {
+                grid.innerHTML = '<div class="dest-empty">No destinations matched. <a href="https://esimcircle.com/shop" target="_blank" rel="noopener" style="color:var(--orange)">Browse all plans →</a></div>';
+            } else {
+                grid.innerHTML = list.map(d =>
+                    `<a href="${d.url}" target="_blank" rel="noopener" class="dest-chip">
+        <span class="flag">${d.flag}</span>
+        <span class="label">${d.name}</span>
+      </a>`
+                ).join('');
+            }
+            countEl.textContent = list.length;
+        }
+
+        function filterDest(q) {
+            const lower = q.toLowerCase().trim();
+            const filtered = lower ? ALL_DESTINATIONS.filter(d => d.name.toLowerCase().includes(lower)) : ALL_DESTINATIONS;
+            renderDest(filtered);
+        }
+
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // Init
+        renderDest(ALL_DESTINATIONS);
+    </script>
+</body>
+
+</html>
