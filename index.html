@@ -24,17 +24,19 @@
         :root {
             --orange: #ff4c0e;
             --orange-light: #ff6a35;
-            --orange-dim: rgba(255, 76, 14, 0.12);
-            --orange-glow: rgba(255, 76, 14, 0.35);
-            --dark: #090909;
-            --dark2: #101010;
-            --dark3: #161616;
-            --card: #1c1c1c;
-            --border: #2a2a2a;
-            --border-light: #333;
-            --text: #f2ede8;
-            --text-dim: #888;
-            --text-muted: #444;
+            --orange-dim: rgba(255, 76, 14, 0.10);
+            --orange-soft: rgba(255, 76, 14, 0.06);
+            --orange-glow: rgba(255, 76, 14, 0.22);
+            --dark: #ffffff;
+            --dark2: #fff7f3;
+            --dark3: #ffffff;
+            --card: #ffffff;
+            --border: #f0ded6;
+            --border-light: #e8cbc0;
+            --text: #18120f;
+            --text-dim: #5f524d;
+            --text-muted: #8d7d76;
+            --shadow: 0 18px 60px rgba(70, 38, 24, 0.08);
             --radius: 14px;
             --radius-sm: 8px;
         }
@@ -60,9 +62,10 @@
             justify-content: space-between;
             padding: 0 48px;
             height: 64px;
-            background: rgba(9, 9, 9, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 24px rgba(70, 38, 24, 0.06);
         }
 
         .nav-logo {
@@ -75,7 +78,7 @@
         .nav-logo-name {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--text);
             letter-spacing: -0.5px;
         }
 
@@ -113,7 +116,7 @@
         }
 
         .nav-links a:hover {
-            color: #fff;
+            color: var(--text);
         }
 
         .nav-cta {
@@ -155,7 +158,7 @@
             top: 64px;
             left: 0;
             right: 0;
-            background: rgba(9, 9, 9, 0.97);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border);
             z-index: 199;
@@ -202,19 +205,19 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 70% 55% at 50% 105%, rgba(255, 76, 14, 0.28), transparent 70%),
-                radial-gradient(ellipse 40% 35% at 85% 15%, rgba(255, 76, 14, 0.1), transparent),
-                var(--dark);
+                radial-gradient(ellipse 70% 55% at 50% 105%, rgba(255, 76, 14, 0.16), transparent 70%),
+                radial-gradient(ellipse 40% 35% at 85% 15%, rgba(255, 76, 14, 0.10), transparent),
+                linear-gradient(180deg, #ffffff 0%, #fff8f5 100%);
         }
 
         .hero-grid {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255, 76, 14, 0.055) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 76, 14, 0.055) 1px, transparent 1px);
+                linear-gradient(rgba(255, 76, 14, 0.085) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 76, 14, 0.085) 1px, transparent 1px);
             background-size: 72px 72px;
-            mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent);
+            mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 34%, transparent);
         }
 
         .hero-inner {
@@ -268,7 +271,7 @@
             font-weight: 900;
             line-height: 1.0;
             letter-spacing: -3px;
-            color: #fff;
+            color: var(--text);
             margin-bottom: 24px;
             animation: fadeUp .6s .08s ease both;
         }
@@ -327,7 +330,7 @@
 
         .btn-ghost:hover {
             border-color: var(--text-dim);
-            color: #fff;
+            color: var(--text);
         }
 
         .hero-stats {
@@ -341,7 +344,7 @@
         .stat-num {
             font-size: 2rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--text);
             letter-spacing: -1px;
         }
 
@@ -398,7 +401,7 @@
             display: block;
             font-size: 0.875rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--text);
         }
 
         .trust-text span {
@@ -429,7 +432,7 @@
             font-size: clamp(1.8rem, 3.5vw, 2.8rem);
             font-weight: 800;
             letter-spacing: -1.2px;
-            color: #fff;
+            color: var(--text);
             line-height: 1.1;
             margin-bottom: 14px;
         }
@@ -468,7 +471,8 @@
             padding: 36px;
             position: relative;
             overflow: hidden;
-            transition: border-color .25s, transform .25s;
+            transition: border-color .25s, transform .25s, box-shadow .25s;
+            box-shadow: var(--shadow);
         }
 
         .plan-card:hover {
@@ -478,7 +482,7 @@
 
         .plan-card.featured {
             border-color: var(--orange);
-            background: linear-gradient(145deg, #180d00, var(--dark3));
+            background: linear-gradient(145deg, #fff3ec, #ffffff);
         }
 
         .plan-card.featured::before {
@@ -515,7 +519,7 @@
         .plan-name {
             font-size: 1.7rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--text);
             letter-spacing: -0.5px;
             margin-bottom: 10px;
         }
@@ -644,7 +648,7 @@
 
         .dest-chip:hover {
             border-color: var(--orange);
-            color: #fff;
+            color: var(--text);
             background: var(--orange-dim);
         }
 
@@ -698,11 +702,12 @@
         }
 
         .step {
-            background: var(--dark);
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 32px;
             position: relative;
+            box-shadow: var(--shadow);
         }
 
         .step-num {
@@ -724,7 +729,7 @@
         .step h3 {
             font-size: 1rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--text);
             margin-bottom: 10px;
         }
 
@@ -754,6 +759,7 @@
             padding: 28px 24px;
             text-decoration: none;
             transition: all .22s;
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -762,7 +768,7 @@
         .link-card:hover {
             border-color: var(--orange);
             transform: translateY(-3px);
-            box-shadow: 0 16px 48px rgba(255, 76, 14, 0.08);
+            box-shadow: var(--shadow);
         }
 
         .link-icon {
@@ -778,7 +784,7 @@
         .link-title {
             font-size: 0.9rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--text);
         }
 
         .link-desc {
@@ -809,7 +815,7 @@
         .affiliate-banner {
             max-width: 1200px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #160900, #111);
+            background: linear-gradient(135deg, #fff3ec, #ffffff);
             border: 1px solid var(--orange);
             border-radius: 20px;
             padding: 52px 60px;
@@ -835,7 +841,7 @@
         .affiliate-banner h2 {
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 800;
-            color: #fff;
+            color: var(--text);
             letter-spacing: -0.8px;
             margin-bottom: 6px;
         }
@@ -874,7 +880,7 @@
         .footer-logo-name {
             font-size: 1.2rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--text);
         }
 
         .footer-logo-name span {
@@ -903,7 +909,7 @@
         .footer-col h4 {
             font-size: 0.72rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--text);
             text-transform: uppercase;
             letter-spacing: 1.2px;
             margin-bottom: 18px;
@@ -1375,200 +1381,484 @@
     </footer>
 
     <script>
-        const ALL_DESTINATIONS = [
-            { name: "Puerto Rico", flag: "🇵🇷", url: "https://esimcircle.com/esims/puerto-rico-esim/" },
-            { name: "Mali", flag: "🇲🇱", url: "https://esimcircle.com/esims/mali-esim/" },
-            { name: "Central African Republic", flag: "🇨🇫", url: "https://esimcircle.com/esims/central-african-republic-esim/" },
-            { name: "Liberia", flag: "🇱🇷", url: "https://esimcircle.com/esims/liberia-esim/" },
-            { name: "Africa (25 Areas)", flag: "🌍", url: "https://esimcircle.com/esims/africa-esim-25-areas/" },
-            { name: "Liechtenstein", flag: "🇱🇮", url: "https://esimcircle.com/esims/liechtenstein-esim/" },
-            { name: "Middle East", flag: "🕌", url: "https://esimcircle.com/esims/middle-east-esim/" },
-            { name: "Mozambique", flag: "🇲🇿", url: "https://esimcircle.com/esims/mozambique-esim/" },
-            { name: "Guernsey", flag: "🇬🇬", url: "https://esimcircle.com/esims/guernsey-esim/" },
-            { name: "South America (15 Areas)", flag: "🌎", url: "https://esimcircle.com/esims/south-america-esim-15-areas/" },
-            { name: "Madagascar", flag: "🇲🇬", url: "https://esimcircle.com/esims/madagascar-esim/" },
-            { name: "Jamaica", flag: "🇯🇲", url: "https://esimcircle.com/esims/jamaica-esim/" },
-            { name: "Asia (20 Areas)", flag: "🌏", url: "https://esimcircle.com/esims/asia-esim-20-areas/" },
-            { name: "Middle East & North Africa", flag: "🕌", url: "https://esimcircle.com/esims/middle-east-north-africa/" },
-            { name: "Singapore + Malaysia", flag: "🇸🇬", url: "https://esimcircle.com/esims/singapore-malaysia-esim/" },
-            { name: "Reunion", flag: "🇷🇪", url: "https://esimcircle.com/esims/reunion-esim/" },
-            { name: "Singapore", flag: "🇸🇬", url: "https://esimcircle.com/esims/singapore-esim/" },
-            { name: "Isle of Man", flag: "🇮🇲", url: "https://esimcircle.com/esims/isle-of-man-esim/" },
-            { name: "Russia", flag: "🇷🇺", url: "https://esimcircle.com/esims/russia-esim/" },
-            { name: "Jersey", flag: "🇯🇪", url: "https://esimcircle.com/esims/jersey-esim/" },
-            { name: "Malta", flag: "🇲🇹", url: "https://esimcircle.com/esims/malta-esim/" },
-            { name: "Turkey", flag: "🇹🇷", url: "https://esimcircle.com/esims/turkey-esim/" },
-            { name: "USA + Canada", flag: "🇺🇸", url: "https://esimcircle.com/esims/usa-canada-esim/" },
-            { name: "Cambodia", flag: "🇰🇭", url: "https://esimcircle.com/esims/cambodia-esim/" },
-            { name: "Ukraine", flag: "🇺🇦", url: "https://esimcircle.com/esims/ukraine-esim/" },
-            { name: "Estonia", flag: "🇪🇪", url: "https://esimcircle.com/esims/estonia-esim/" },
-            { name: "Lithuania", flag: "🇱🇹", url: "https://esimcircle.com/esims/lithuania-esim/" },
-            { name: "Luxembourg", flag: "🇱🇺", url: "https://esimcircle.com/esims/luxembourg-esim/" },
-            { name: "Slovenia", flag: "🇸🇮", url: "https://esimcircle.com/esims/slovenia-esim/" },
-            { name: "Balkans", flag: "🌍", url: "https://esimcircle.com/esims/balkans-esim/" },
-            { name: "Europe + Morocco (40 Areas)", flag: "🌍", url: "https://esimcircle.com/esims/europe-40-areas-morocco-esim/" },
-            { name: "Kazakhstan", flag: "🇰🇿", url: "https://esimcircle.com/esims/kazakhstan-esim/" },
-            { name: "Kyrgyzstan", flag: "🇰🇬", url: "https://esimcircle.com/esims/kyrgyzstan-esim/" },
-            { name: "Moldova", flag: "🇲🇩", url: "https://esimcircle.com/esims/moldova-esim/" },
-            { name: "Montenegro", flag: "🇲🇪", url: "https://esimcircle.com/esims/montenegro-esim/" },
-            { name: "Slovakia", flag: "🇸🇰", url: "https://esimcircle.com/esims/slovakia-esim/" },
-            { name: "Uzbekistan", flag: "🇺🇿", url: "https://esimcircle.com/esims/uzbekistan-esim/" },
-            { name: "Aland Islands", flag: "🇦🇽", url: "https://esimcircle.com/esims/aland-islands-esim/" },
-            { name: "North Macedonia", flag: "🇲🇰", url: "https://esimcircle.com/esims/north-macedonia-esim/" },
-            { name: "Laos", flag: "🇱🇦", url: "https://esimcircle.com/esims/laos-esim/" },
-            { name: "Hong Kong", flag: "🇭🇰", url: "https://esimcircle.com/esims/hong-kong-esim/" },
-            { name: "China + Japan + South Korea", flag: "🌏", url: "https://esimcircle.com/esims/china-mainland-japan-south-korea-esim/" },
-            { name: "Austria", flag: "🇦🇹", url: "https://esimcircle.com/esims/austria-esim/" },
-            { name: "Denmark", flag: "🇩🇰", url: "https://esimcircle.com/esims/denmark-esim/" },
-            { name: "Netherlands", flag: "🇳🇱", url: "https://esimcircle.com/esims/netherlands-esim/" },
-            { name: "Italy", flag: "🇮🇹", url: "https://esimcircle.com/esims/italy-esim/" },
-            { name: "United Kingdom", flag: "🇬🇧", url: "https://esimcircle.com/esims/united-kingdom-esim/" },
-            { name: "Belgium", flag: "🇧🇪", url: "https://esimcircle.com/esims/belgium-esim/" },
-            { name: "Bulgaria", flag: "🇧🇬", url: "https://esimcircle.com/esims/bulgaria-esim/" },
-            { name: "Cyprus", flag: "🇨🇾", url: "https://esimcircle.com/esims/cyprus-esim/" },
-            { name: "Czech Republic", flag: "🇨🇿", url: "https://esimcircle.com/esims/czech-republic-esim/" },
-            { name: "Finland", flag: "🇫🇮", url: "https://esimcircle.com/esims/finland-esim/" },
-            { name: "Hungary", flag: "🇭🇺", url: "https://esimcircle.com/esims/hungary-esim/" },
-            { name: "Malaysia", flag: "🇲🇾", url: "https://esimcircle.com/esims/malaysia-esim/" },
-            { name: "Ireland", flag: "🇮🇪", url: "https://esimcircle.com/esims/ireland-esim/" },
-            { name: "Romania", flag: "🇷🇴", url: "https://esimcircle.com/esims/romania-esim/" },
-            { name: "Sweden", flag: "🇸🇪", url: "https://esimcircle.com/esims/sweden-esim/" },
-            { name: "Norway", flag: "🇳🇴", url: "https://esimcircle.com/esims/norway-esim/" },
-            { name: "South Korea", flag: "🇰🇷", url: "https://esimcircle.com/esims/south-korea-esim/" },
-            { name: "Thailand", flag: "🇹🇭", url: "https://esimcircle.com/esims/thailand-esim/" },
-            { name: "France", flag: "🇫🇷", url: "https://esimcircle.com/esims/france-esim/" },
-            { name: "Japan", flag: "🇯🇵", url: "https://esimcircle.com/esims/japan-esim/" },
-            { name: "Spain", flag: "🇪🇸", url: "https://esimcircle.com/esims/spain-esim/" },
-            { name: "Poland", flag: "🇵🇱", url: "https://esimcircle.com/esims/poland-esim/" },
-            { name: "China", flag: "🇨🇳", url: "https://esimcircle.com/esims/china-esim/" },
-            { name: "Europe (40 Areas)", flag: "🌍", url: "https://esimcircle.com/esims/europe-esim-40-areas/" },
-            { name: "Germany", flag: "🇩🇪", url: "https://esimcircle.com/esims/germany-esim/" },
-            { name: "Greece", flag: "🇬🇷", url: "https://esimcircle.com/esims/greece-esim/" },
-            { name: "Portugal", flag: "🇵🇹", url: "https://esimcircle.com/esims/portugal-esim/" },
-            { name: "Albania", flag: "🇦🇱", url: "https://esimcircle.com/esims/albania-esim/" },
-            { name: "Switzerland", flag: "🇨🇭", url: "https://esimcircle.com/esims/switzerland-esim/" },
-            { name: "Croatia", flag: "🇭🇷", url: "https://esimcircle.com/esims/croatia-esim/" },
-            { name: "Algeria", flag: "🇩🇿", url: "https://esimcircle.com/esims/algeria-esim/" },
-            { name: "Bangladesh", flag: "🇧🇩", url: "https://esimcircle.com/esims/bangladesh-esim/" },
-            { name: "DR Congo", flag: "🇨🇩", url: "https://esimcircle.com/esims/democratic-republic-of-the-congo-esim/" },
-            { name: "French Guiana", flag: "🇬🇫", url: "https://esimcircle.com/esims/french-guiana-esim/" },
-            { name: "Georgia", flag: "🇬🇪", url: "https://esimcircle.com/esims/georgia-esim/" },
-            { name: "Serbia", flag: "🇷🇸", url: "https://esimcircle.com/esims/serbia-esim/" },
-            { name: "Macao", flag: "🇲🇴", url: "https://esimcircle.com/esims/macao-esim/" },
-            { name: "New Zealand", flag: "🇳🇿", url: "https://esimcircle.com/esims/new-zealand-esim/" },
-            { name: "Sri Lanka", flag: "🇱🇰", url: "https://esimcircle.com/esims/sri-lanka-esim/" },
-            { name: "Tanzania", flag: "🇹🇿", url: "https://esimcircle.com/esims/tanzania-esim/" },
-            { name: "Vietnam", flag: "🇻🇳", url: "https://esimcircle.com/esims/vietnam-esim/" },
-            { name: "Seychelles", flag: "🇸🇨", url: "https://esimcircle.com/esims/seychelles-esim/" },
-            { name: "Armenia", flag: "🇦🇲", url: "https://esimcircle.com/esims/armenia-esim/" },
-            { name: "United States", flag: "🇺🇸", url: "https://esimcircle.com/esims/united-states-esim/" },
-            { name: "Gulf Cooperation Council", flag: "🕌", url: "https://esimcircle.com/esims/gulf-cooperation-council-esim/" },
-            { name: "Iceland", flag: "🇮🇸", url: "https://esimcircle.com/esims/iceland-esim/" },
-            { name: "Morocco", flag: "🇲🇦", url: "https://esimcircle.com/esims/morocco-esim/" },
-            { name: "Global (120 Areas)", flag: "🌐", url: "https://esimcircle.com/esims/global-esim-120-areas/" },
-            { name: "Tunisia", flag: "🇹🇳", url: "https://esimcircle.com/esims/tunisia-esim/" },
-            { name: "Colombia", flag: "🇨🇴", url: "https://esimcircle.com/esims/colombia-esim/" },
-            { name: "El Salvador", flag: "🇸🇻", url: "https://esimcircle.com/esims/el-salvador-esim/" },
-            { name: "Turks and Caicos Islands", flag: "🇹🇨", url: "https://esimcircle.com/esims/turks-and-caicos-islands-esim/" },
-            { name: "Guinea", flag: "🇬🇳", url: "https://esimcircle.com/esims/guinea-esim/" },
-            { name: "Costa Rica", flag: "🇨🇷", url: "https://esimcircle.com/esims/costa-rica-esim/" },
-            { name: "Philippines", flag: "🇵🇭", url: "https://esimcircle.com/esims/philippines-esim/" },
-            { name: "Singapore + Malaysia + Thailand", flag: "🇸🇬", url: "https://esimcircle.com/esims/singapore-malaysia-thailand-esim/" },
-            { name: "Israel", flag: "🇮🇱", url: "https://esimcircle.com/esims/israel-esim/" },
-            { name: "Cote d'Ivoire", flag: "🇨🇮", url: "https://esimcircle.com/esims/cote-divoire-esim/" },
-            { name: "UAE", flag: "🇦🇪", url: "https://esimcircle.com/esims/united-arab-emirates-esim/" },
-            { name: "Trinidad and Tobago", flag: "🇹🇹", url: "https://esimcircle.com/esims/trinidad-and-tobago-esim/" },
-            { name: "Canada", flag: "🇨🇦", url: "https://esimcircle.com/esims/canada-esim/" },
-            { name: "Azerbaijan", flag: "🇦🇿", url: "https://esimcircle.com/esims/azerbaijan-esim/" },
-            { name: "Bosnia and Herzegovina", flag: "🇧🇦", url: "https://esimcircle.com/esims/bosnia-and-herzegovina-esim/" },
-            { name: "Ghana", flag: "🇬🇭", url: "https://esimcircle.com/esims/ghana-esim/" },
-            { name: "Mongolia", flag: "🇲🇳", url: "https://esimcircle.com/esims/mongolia-esim/" },
-            { name: "SE Asia (5 Countries)", flag: "🌏", url: "https://esimcircle.com/esims/singapore-malaysia-vietnam-thailand-indonesia-esim/" },
-            { name: "Antigua and Barbuda", flag: "🇦🇬", url: "https://esimcircle.com/esims/antigua-and-barbuda-esim/" },
-            { name: "Grenada", flag: "🇬🇩", url: "https://esimcircle.com/esims/grenada-esim/" },
-            { name: "Saint Lucia", flag: "🇱🇨", url: "https://esimcircle.com/esims/saint-lucia-esim/" },
-            { name: "China + HK + Macao", flag: "🌏", url: "https://esimcircle.com/esims/china-mainland-hk-macao-esim/" },
-            { name: "Mexico", flag: "🇲🇽", url: "https://esimcircle.com/esims/mexico-esim/" },
-            { name: "Rwanda", flag: "🇷🇼", url: "https://esimcircle.com/esims/rwanda-esim/" },
-            { name: "Saint Kitts and Nevis", flag: "🇰🇳", url: "https://esimcircle.com/esims/saint-kitts-and-nevis-esim/" },
-            { name: "Virgin Islands", flag: "🇻🇮", url: "https://esimcircle.com/esims/virgin-islands-esim/" },
-            { name: "Ecuador", flag: "🇪🇨", url: "https://esimcircle.com/esims/ecuador-esim/" },
-            { name: "Fiji", flag: "🇫🇯", url: "https://esimcircle.com/esims/fiji-esim/" },
-            { name: "Montserrat", flag: "🇲🇸", url: "https://esimcircle.com/esims/montserrat-esim/" },
-            { name: "Qatar", flag: "🇶🇦", url: "https://esimcircle.com/esims/qatar-esim/" },
-            { name: "Central Asia", flag: "🌏", url: "https://esimcircle.com/esims/central-asia-esim/" },
-            { name: "Egypt", flag: "🇪🇬", url: "https://esimcircle.com/esims/egypt-esim/" },
-            { name: "Oman", flag: "🇴🇲", url: "https://esimcircle.com/esims/oman-esim/" },
-            { name: "South Africa", flag: "🇿🇦", url: "https://esimcircle.com/esims/south-africa-esim/" },
-            { name: "Nigeria", flag: "🇳🇬", url: "https://esimcircle.com/esims/nigeria-esim/" },
-            { name: "Saint Vincent and the Grenadines", flag: "🇻🇨", url: "https://esimcircle.com/esims/saint-vincent-and-the-grenadines-esim/" },
-            { name: "Bahamas", flag: "🇧🇸", url: "https://esimcircle.com/esims/bahamas-esim/" },
-            { name: "Andorra", flag: "🇦🇩", url: "https://esimcircle.com/esims/andorra-esim/" },
-            { name: "Argentina", flag: "🇦🇷", url: "https://esimcircle.com/esims/argentina-esim/" },
-            { name: "Guam", flag: "🇬🇺", url: "https://esimcircle.com/esims/guam-esim/" },
-            { name: "Faroe Islands", flag: "🇫🇴", url: "https://esimcircle.com/esims/faroe-islands-esim/" },
-            { name: "Jordan", flag: "🇯🇴", url: "https://esimcircle.com/esims/jordan-esim/" },
-            { name: "Greenland", flag: "🇬🇱", url: "https://esimcircle.com/esims/greenland-esim/" },
-            { name: "Bahrain", flag: "🇧🇭", url: "https://esimcircle.com/esims/bahrain-esim/" },
-            { name: "Brunei", flag: "🇧🇳", url: "https://esimcircle.com/esims/brunei-darussalam-esim/" },
-            { name: "Chile", flag: "🇨🇱", url: "https://esimcircle.com/esims/chile-esim/" },
-            { name: "Gibraltar", flag: "🇬🇮", url: "https://esimcircle.com/esims/gibraltar-esim/" },
-            { name: "Bolivia", flag: "🇧🇴", url: "https://esimcircle.com/esims/bolivia-esim/" },
-            { name: "Honduras", flag: "🇭🇳", url: "https://esimcircle.com/esims/honduras-esim/" },
-            { name: "Brazil", flag: "🇧🇷", url: "https://esimcircle.com/esims/brazil-esim/" },
-            { name: "Belize", flag: "🇧🇿", url: "https://esimcircle.com/esims/belize-esim/" },
-            { name: "Panama", flag: "🇵🇦", url: "https://esimcircle.com/esims/panama-esim/" },
-            { name: "India", flag: "🇮🇳", url: "https://esimcircle.com/esims/india-esim/" },
-            { name: "Kenya", flag: "🇰🇪", url: "https://esimcircle.com/esims/kenya-esim/" },
-            { name: "Eswatini", flag: "🇸🇿", url: "https://esimcircle.com/esims/eswatini-esim/" },
-            { name: "Nicaragua", flag: "🇳🇮", url: "https://esimcircle.com/esims/nicaragua-esim/" },
-            { name: "Dominican Republic", flag: "🇩🇴", url: "https://esimcircle.com/esims/dominican-republic-esim/" },
-            { name: "North America (3 Areas)", flag: "🌎", url: "https://esimcircle.com/esims/north-america-esim-3-areas/" },
-            { name: "Paraguay", flag: "🇵🇾", url: "https://esimcircle.com/esims/paraguay-esim/" },
-            { name: "Peru", flag: "🇵🇪", url: "https://esimcircle.com/esims/peru-esim/" },
-            { name: "Australia + New Zealand", flag: "🇦🇺", url: "https://esimcircle.com/esims/australia-new-zealand-esim/" },
-            { name: "Uruguay", flag: "🇺🇾", url: "https://esimcircle.com/esims/uruguay-esim/" },
-            { name: "Anguilla", flag: "🇦🇮", url: "https://esimcircle.com/esims/anguilla-esim/" },
-            { name: "Guatemala", flag: "🇬🇹", url: "https://esimcircle.com/esims/guatemala-esim/" },
-            { name: "Malawi", flag: "🇲🇼", url: "https://esimcircle.com/esims/malawi-esim/" },
-            { name: "Nepal", flag: "🇳🇵", url: "https://esimcircle.com/esims/nepal-esim/" },
-            { name: "Chad", flag: "🇹🇩", url: "https://esimcircle.com/esims/chad-esim/" },
-            { name: "Zambia", flag: "🇿🇲", url: "https://esimcircle.com/esims/zambia-esim/" },
-            { name: "Guadeloupe", flag: "🇬🇵", url: "https://esimcircle.com/esims/guadeloupe-esim/" },
-            { name: "Maldives", flag: "🇲🇻", url: "https://esimcircle.com/esims/maldives-esim/" },
-            { name: "Gabon", flag: "🇬🇦", url: "https://esimcircle.com/esims/gabon-esim/" },
-            { name: "Benin", flag: "🇧🇯", url: "https://esimcircle.com/esims/benin-esim/" },
-            { name: "Congo", flag: "🇨🇬", url: "https://esimcircle.com/esims/congo-esim/" },
-            { name: "Niger", flag: "🇳🇪", url: "https://esimcircle.com/esims/niger-esim/" },
-            { name: "Uganda", flag: "🇺🇬", url: "https://esimcircle.com/esims/uganda-esim/" },
-            { name: "Burkina Faso", flag: "🇧🇫", url: "https://esimcircle.com/esims/burkina-faso-esim/" },
-            { name: "Botswana", flag: "🇧🇼", url: "https://esimcircle.com/esims/botswana-esim/" },
-            { name: "Sierra Leone", flag: "🇸🇱", url: "https://esimcircle.com/esims/sierra-leone-esim/" },
-            { name: "Guinea-Bissau", flag: "🇬🇼", url: "https://esimcircle.com/esims/guinea-bissau-esim/" },
-            { name: "Monaco", flag: "🇲🇨", url: "https://esimcircle.com/esims/monaco-esim/" },
-            { name: "French Polynesia", flag: "🇵🇫", url: "https://esimcircle.com/esims/french-polynesia-esim/" },
-            { name: "Mauritius", flag: "🇲🇺", url: "https://esimcircle.com/esims/mauritius-esim/" },
-            { name: "Cape Verde", flag: "🇨🇻", url: "https://esimcircle.com/esims/cape-verde-esim/" },
-            { name: "Haiti", flag: "🇭🇹", url: "https://esimcircle.com/esims/haiti-esim/" },
-            { name: "Caribbean (20 Areas)", flag: "🏝️", url: "https://esimcircle.com/esims/caribbean-esim-20-areas/" },
-            { name: "Samoa", flag: "🇼🇸", url: "https://esimcircle.com/esims/samoa-esim/" },
-            { name: "Dominica", flag: "🇩🇲", url: "https://esimcircle.com/esims/dominica-esim/" },
-            { name: "Curacao", flag: "🇨🇼", url: "https://esimcircle.com/esims/curacao-esim/" },
-            { name: "Cameroon", flag: "🇨🇲", url: "https://esimcircle.com/esims/cameroon-esim/" },
-            { name: "Senegal", flag: "🇸🇳", url: "https://esimcircle.com/esims/senegal-esim/" },
-            { name: "Barbados", flag: "🇧🇧", url: "https://esimcircle.com/esims/barbados-esim/" },
-            { name: "Bermuda", flag: "🇧🇲", url: "https://esimcircle.com/esims/bermuda-esim/" },
-            { name: "Guyana", flag: "🇬🇾", url: "https://esimcircle.com/esims/guyana-esim/" },
-            { name: "Cayman Islands", flag: "🇰🇾", url: "https://esimcircle.com/esims/cayman-islands-esim/" },
-            { name: "Suriname", flag: "🇸🇷", url: "https://esimcircle.com/esims/suriname-esim/" },
-            { name: "Bhutan", flag: "🇧🇹", url: "https://esimcircle.com/esims/bhutan-esim/" },
-            { name: "Gambia", flag: "🇬🇲", url: "https://esimcircle.com/esims/gambia-esim/" },
-            { name: "Angola", flag: "🇦🇴", url: "https://esimcircle.com/esims/angola-esim/" },
-            { name: "Libya", flag: "🇱🇾", url: "https://esimcircle.com/esims/libya-esim/" },
-            { name: "Indonesia", flag: "🇮🇩", url: "https://esimcircle.com/esims/indonesia-esim/" },
-            { name: "Australia", flag: "🇦🇺", url: "https://esimcircle.com/esims/australia-esim/" },
-            { name: "Saudi Arabia", flag: "🇸🇦", url: "https://esimcircle.com/esims/saudi-arabia-esim/" },
-        ];
+        const COVERAGE_URLS = [
+            "https://esimcircle.com/esims/puerto-rico-esim/",
+            "https://esimcircle.com/esims/mali-esim/",
+            "https://esimcircle.com/esims/central-african-republic-esim/",
+            "https://esimcircle.com/esims/guernsey-esim/",
+            "https://esimcircle.com/esims/south-america-esim-15-areas/",
+            "https://esimcircle.com/esims/africa-esim-25-areas/",
+            "https://esimcircle.com/esims/middle-east-esim/",
+            "https://esimcircle.com/esims/china-mainland-japan-south-korea-esim/",
+            "https://esimcircle.com/esims/singapore-malaysia-thailand-esim/",
+            "https://esimcircle.com/esims/asia-esim-20-areas/",
+            "https://esimcircle.com/esims/europe-esim-40-areas/",
+            "https://esimcircle.com/esims/usa-canada-esim/",
+            "https://esimcircle.com/esims/balkans-esim/",
+            "https://esimcircle.com/esims/asia-20-areas-esim/",
+            "https://esimcircle.com/esims/isle-of-man-esim/",
+            "https://esimcircle.com/esims/central-asia-esim/",
+            "https://esimcircle.com/esims/jamaica-esim/",
+            "https://esimcircle.com/esims/middle-east-north-africa/",
+            "https://esimcircle.com/esims/liberia-esim/",
+            "https://esimcircle.com/esims/grenada-esim/",
+            "https://esimcircle.com/esims/saint-lucia-esim/",
+            "https://esimcircle.com/esims/bahamas-esim/",
+            "https://esimcircle.com/esims/china-mainland-hk-macao-esim/",
+            "https://esimcircle.com/esims/belize-esim/",
+            "https://esimcircle.com/esims/gulf-cooperation-council-esim/",
+            "https://esimcircle.com/esims/rwanda-esim/",
+            "https://esimcircle.com/esims/saint-kitts-and-nevis-esim/",
+            "https://esimcircle.com/esims/trinidad-and-tobago-esim/",
+            "https://esimcircle.com/esims/turks-and-caicos-islands-esim/",
+            "https://esimcircle.com/esims/virgin-islands-esim/",
+            "https://esimcircle.com/esims/caribbean-esim-20-areas/",
+            "https://esimcircle.com/esims/saint-vincent-and-the-grenadines-esim/",
+            "https://esimcircle.com/esims/global-esim-120-areas/",
+            "https://esimcircle.com/esims/australia-new-zealand-esim/",
+            "https://esimcircle.com/esims/brunei-darussalam-esim/",
+            "https://esimcircle.com/esims/dominica-esim/",
+            "https://esimcircle.com/esims/democratic-republic-of-the-congo-esim/",
+            "https://esimcircle.com/esims/europe-40-areas-morocco-esim/",
+            "https://esimcircle.com/esims/guinea-esim/",
+            "https://esimcircle.com/esims/madagascar-esim/",
+            "https://esimcircle.com/esims/montserrat-esim/",
+            "https://esimcircle.com/esims/mozambique-esim/",
+            "https://esimcircle.com/esims/mongolia-esim/",
+            "https://esimcircle.com/esims/singapore-malaysia-vietnam-thailand-indonesia-esim/",
+            "https://esimcircle.com/esims/singapore-malaysia-esim/",
+            "https://esimcircle.com/esims/algeria-esim/",
+            "https://esimcircle.com/esims/japan-esim/",
+            "https://esimcircle.com/esims/albania-esim/",
+            "https://esimcircle.com/esims/aland-islands-esim/",
+            "https://esimcircle.com/esims/andorra-esim/",
+            "https://esimcircle.com/esims/anguilla-esim/",
+            "https://esimcircle.com/esims/armenia-esim/",
+            "https://esimcircle.com/esims/argentina-esim/",
+            "https://esimcircle.com/esims/bermuda-esim/",
+            "https://esimcircle.com/esims/bahrain-esim/",
+            "https://esimcircle.com/esims/bangladesh-esim/",
+            "https://esimcircle.com/esims/barbados-esim/",
+            "https://esimcircle.com/esims/benin-esim/",
+            "https://esimcircle.com/esims/bosnia-and-herzegovina-esim/",
+            "https://esimcircle.com/esims/bolivia-esim/",
+            "https://esimcircle.com/esims/cape-verde-esim/",
+            "https://esimcircle.com/esims/burkina-faso-esim/",
+            "https://esimcircle.com/esims/cameroon-esim/",
+            "https://esimcircle.com/esims/brazil-esim/",
+            "https://esimcircle.com/esims/botswana-esim/",
+            "https://esimcircle.com/esims/cayman-islands-esim/",
+            "https://esimcircle.com/esims/chile-esim/",
+            "https://esimcircle.com/esims/colombia-esim/",
+            "https://esimcircle.com/esims/costa-rica-esim/",
+            "https://esimcircle.com/esims/curacao-esim/",
+            "https://esimcircle.com/esims/ecuador-esim/",
+            "https://esimcircle.com/esims/el-salvador-esim/",
+            "https://esimcircle.com/esims/egypt-esim/",
+            "https://esimcircle.com/esims/dominican-republic-esim/",
+            "https://esimcircle.com/esims/france-esim/",
+            "https://esimcircle.com/esims/fiji-esim/",
+            "https://esimcircle.com/esims/gambia-esim/",
+            "https://esimcircle.com/esims/ghana-esim/",
+            "https://esimcircle.com/esims/georgia-esim/",
+            "https://esimcircle.com/esims/germany-esim/",
+            "https://esimcircle.com/esims/gibraltar-esim/",
+            "https://esimcircle.com/esims/guyana-esim/",
+            "https://esimcircle.com/esims/hong-kong-esim/",
+            "https://esimcircle.com/esims/guatemala-esim/",
+            "https://esimcircle.com/esims/honduras-esim/",
+            "https://esimcircle.com/esims/guinea-bissau-esim/",
+            "https://esimcircle.com/esims/india-esim/",
+            "https://esimcircle.com/esims/israel-esim/",
+            "https://esimcircle.com/esims/jordan-esim/",
+            "https://esimcircle.com/esims/italy-esim/",
+            "https://esimcircle.com/esims/jersey-esim/",
+            "https://esimcircle.com/esims/kazakhstan-esim/",
+            "https://esimcircle.com/esims/kyrgyzstan-esim/",
+            "https://esimcircle.com/esims/mauritius-esim/",
+            "https://esimcircle.com/esims/maldives-esim/",
+            "https://esimcircle.com/esims/morocco-esim/",
+            "https://esimcircle.com/esims/montenegro-esim/",
+            "https://esimcircle.com/esims/new-zealand-esim/",
+            "https://esimcircle.com/esims/nicaragua-esim/",
+            "https://esimcircle.com/esims/oman-esim/",
+            "https://esimcircle.com/esims/paraguay-esim/",
+            "https://esimcircle.com/esims/nigeria-esim/",
+            "https://esimcircle.com/esims/peru-esim/",
+            "https://esimcircle.com/esims/serbia-esim/",
+            "https://esimcircle.com/esims/samoa-esim/",
+            "https://esimcircle.com/esims/sierra-leone-esim/",
+            "https://esimcircle.com/esims/congo-esim/",
+            "https://esimcircle.com/esims/south-africa-esim/",
+            "https://esimcircle.com/esims/sri-lanka-esim/",
+            "https://esimcircle.com/esims/suriname-esim/",
+            "https://esimcircle.com/esims/tanzania-esim/",
+            "https://esimcircle.com/esims/tunisia-esim/",
+            "https://esimcircle.com/esims/turkey-esim/",
+            "https://esimcircle.com/esims/united-arab-emirates-esim/",
+            "https://esimcircle.com/esims/uganda-esim/",
+            "https://esimcircle.com/esims/uzbekistan-esim/",
+            "https://esimcircle.com/esims/uruguay-esim/",
+            "https://esimcircle.com/esims/angola-esim/",
+            "https://esimcircle.com/esims/greenland-esim/",
+            "https://esimcircle.com/esims/haiti-esim/",
+            "https://esimcircle.com/esims/bhutan-esim/",
+            "https://esimcircle.com/esims/monaco-esim/",
+            "https://esimcircle.com/esims/libya-esim/",
+            "https://esimcircle.com/esims/australia-esim/",
+            "https://esimcircle.com/esims/cote-divoire-esim/",
+            "https://esimcircle.com/esims/antigua-and-barbuda-esim/",
+            "https://esimcircle.com/esims/azerbaijan-esim/",
+            "https://esimcircle.com/esims/belgium-esim/",
+            "https://esimcircle.com/esims/bulgaria-esim/",
+            "https://esimcircle.com/esims/cambodia-esim/",
+            "https://esimcircle.com/esims/croatia-esim/",
+            "https://esimcircle.com/esims/cyprus-esim/",
+            "https://esimcircle.com/esims/czech-republic-esim/",
+            "https://esimcircle.com/esims/chad-esim/",
+            "https://esimcircle.com/esims/faroe-islands-esim/",
+            "https://esimcircle.com/esims/denmark-esim/",
+            "https://esimcircle.com/esims/estonia-esim/",
+            "https://esimcircle.com/esims/finland-esim/",
+            "https://esimcircle.com/esims/eswatini-esim/",
+            "https://esimcircle.com/esims/guam-esim/",
+            "https://esimcircle.com/esims/greece-esim/",
+            "https://esimcircle.com/esims/hungary-esim/",
+            "https://esimcircle.com/esims/french-guiana-esim/",
+            "https://esimcircle.com/esims/iceland-esim/",
+            "https://esimcircle.com/esims/french-polynesia-esim/",
+            "https://esimcircle.com/esims/gabon-esim/",
+            "https://esimcircle.com/esims/guadeloupe-esim/",
+            "https://esimcircle.com/esims/indonesia-esim/",
+            "https://esimcircle.com/esims/ireland-esim/",
+            "https://esimcircle.com/esims/lithuania-esim/",
+            "https://esimcircle.com/esims/laos-esim/",
+            "https://esimcircle.com/esims/liechtenstein-esim/",
+            "https://esimcircle.com/esims/kenya-esim/",
+            "https://esimcircle.com/esims/luxembourg-esim/",
+            "https://esimcircle.com/esims/macao-esim/",
+            "https://esimcircle.com/esims/netherlands-esim/",
+            "https://esimcircle.com/esims/moldova-esim/",
+            "https://esimcircle.com/esims/nepal-esim/",
+            "https://esimcircle.com/esims/malta-esim/",
+            "https://esimcircle.com/esims/malawi-esim/",
+            "https://esimcircle.com/esims/niger-esim/",
+            "https://esimcircle.com/esims/philippines-esim/",
+            "https://esimcircle.com/esims/north-macedonia-esim/",
+            "https://esimcircle.com/esims/norway-esim/",
+            "https://esimcircle.com/esims/panama-esim/",
+            "https://esimcircle.com/esims/qatar-esim/",
+            "https://esimcircle.com/esims/saudi-arabia-esim/",
+            "https://esimcircle.com/esims/poland-esim/",
+            "https://esimcircle.com/esims/portugal-esim/",
+            "https://esimcircle.com/esims/romania-esim/",
+            "https://esimcircle.com/esims/russia-esim/",
+            "https://esimcircle.com/esims/senegal-esim/",
+            "https://esimcircle.com/esims/seychelles-esim/",
+            "https://esimcircle.com/esims/singapore-esim/",
+            "https://esimcircle.com/esims/slovakia-esim/",
+            "https://esimcircle.com/esims/south-korea-esim/",
+            "https://esimcircle.com/esims/slovenia-esim/",
+            "https://esimcircle.com/esims/spain-esim/",
+            "https://esimcircle.com/esims/thailand-esim/",
+            "https://esimcircle.com/esims/sweden-esim/",
+            "https://esimcircle.com/esims/switzerland-esim/",
+            "https://esimcircle.com/esims/vietnam-esim/",
+            "https://esimcircle.com/esims/ukraine-esim/",
+            "https://esimcircle.com/esims/united-kingdom-esim/",
+            "https://esimcircle.com/esims/kuwait-esim/",
+            "https://esimcircle.com/esims/reunion-esim/",
+            "https://esimcircle.com/esims/zambia-esim/",
+            "https://esimcircle.com/esims/aukus-esim-3-countries/",
+            "https://esimcircle.com/esims/central-asia-esim-4-areas/",
+            "https://esimcircle.com/esims/europe-esim-35-areas/",
+            "https://esimcircle.com/esims/ireland-slovenia-esim/",
+            "https://esimcircle.com/esims/ireland-uk-esim/",
+            "https://esimcircle.com/esims/japan-south-korea-esim/",
+            "https://esimcircle.com/esims/martinique-esim/",
+            "https://esimcircle.com/esims/mayotte-esim/",
+            "https://esimcircle.com/esims/saint-barthelemy-esim/",
+            "https://esimcircle.com/esims/saint-martin-esim/",
+            "https://esimcircle.com/esims/san-marino-esim/",
+            "https://esimcircle.com/esims/vatican-city-esim/",
+            "https://esimcircle.com/esims/china-esim/",
+            "https://esimcircle.com/esims/united-states-esim/",
+            "https://esimcircle.com/esims/austria-esim/",
+            "https://esimcircle.com/esims/mexico-esim/",
+            "https://esimcircle.com/esims/malaysia-esim/",
+            "https://esimcircle.com/esims/canada-esim/",
+            "https://esimcircle.com/esims/north-america-esim-3-areas/"
+];
+
+        const DESTINATION_FLAGS = {
+            "puerto-rico": "🇵🇷",
+            "mali": "🇲🇱",
+            "central-african-republic": "🇨🇫",
+            "guernsey": "🇬🇬",
+            "south-america-15-areas": "🌎",
+            "africa-25-areas": "🌍",
+            "middle-east": "🕌",
+            "china-mainland-japan-south-korea": "🌏",
+            "singapore-malaysia-thailand": "🇸🇬",
+            "asia-20-areas": "🌏",
+            "europe-40-areas": "🌍",
+            "usa-canada": "🇺🇸",
+            "balkans": "🌍",
+            "isle-of-man": "🇮🇲",
+            "central-asia": "🌏",
+            "jamaica": "🇯🇲",
+            "middle-east-north-africa": "🕌",
+            "liberia": "🇱🇷",
+            "grenada": "🇬🇩",
+            "saint-lucia": "🇱🇨",
+            "bahamas": "🇧🇸",
+            "china-mainland-hk-macao": "🌏",
+            "belize": "🇧🇿",
+            "gulf-cooperation-council": "🕌",
+            "rwanda": "🇷🇼",
+            "saint-kitts-and-nevis": "🇰🇳",
+            "trinidad-and-tobago": "🇹🇹",
+            "turks-and-caicos-islands": "🇹🇨",
+            "virgin-islands": "🇻🇮",
+            "caribbean-20-areas": "🏝️",
+            "saint-vincent-and-the-grenadines": "🇻🇨",
+            "global-120-areas": "🌐",
+            "australia-new-zealand": "🇦🇺",
+            "brunei-darussalam": "🇧🇳",
+            "dominica": "🇩🇲",
+            "democratic-republic-of-the-congo": "🇨🇩",
+            "europe-40-areas-morocco": "🌍",
+            "guinea": "🇬🇳",
+            "madagascar": "🇲🇬",
+            "montserrat": "🇲🇸",
+            "mozambique": "🇲🇿",
+            "mongolia": "🇲🇳",
+            "singapore-malaysia-vietnam-thailand-indonesia": "🌏",
+            "singapore-malaysia": "🇸🇬",
+            "algeria": "🇩🇿",
+            "japan": "🇯🇵",
+            "albania": "🇦🇱",
+            "aland-islands": "🇦🇽",
+            "andorra": "🇦🇩",
+            "anguilla": "🇦🇮",
+            "armenia": "🇦🇲",
+            "argentina": "🇦🇷",
+            "bermuda": "🇧🇲",
+            "bahrain": "🇧🇭",
+            "bangladesh": "🇧🇩",
+            "barbados": "🇧🇧",
+            "benin": "🇧🇯",
+            "bosnia-and-herzegovina": "🇧🇦",
+            "bolivia": "🇧🇴",
+            "cape-verde": "🇨🇻",
+            "burkina-faso": "🇧🇫",
+            "cameroon": "🇨🇲",
+            "brazil": "🇧🇷",
+            "botswana": "🇧🇼",
+            "cayman-islands": "🇰🇾",
+            "chile": "🇨🇱",
+            "colombia": "🇨🇴",
+            "costa-rica": "🇨🇷",
+            "curacao": "🇨🇼",
+            "ecuador": "🇪🇨",
+            "el-salvador": "🇸🇻",
+            "egypt": "🇪🇬",
+            "dominican-republic": "🇩🇴",
+            "france": "🇫🇷",
+            "fiji": "🇫🇯",
+            "gambia": "🇬🇲",
+            "ghana": "🇬🇭",
+            "georgia": "🇬🇪",
+            "germany": "🇩🇪",
+            "gibraltar": "🇬🇮",
+            "guyana": "🇬🇾",
+            "hong-kong": "🇭🇰",
+            "guatemala": "🇬🇹",
+            "honduras": "🇭🇳",
+            "guinea-bissau": "🇬🇼",
+            "india": "🇮🇳",
+            "israel": "🇮🇱",
+            "jordan": "🇯🇴",
+            "italy": "🇮🇹",
+            "jersey": "🇯🇪",
+            "kazakhstan": "🇰🇿",
+            "kyrgyzstan": "🇰🇬",
+            "mauritius": "🇲🇺",
+            "maldives": "🇲🇻",
+            "morocco": "🇲🇦",
+            "montenegro": "🇲🇪",
+            "new-zealand": "🇳🇿",
+            "nicaragua": "🇳🇮",
+            "oman": "🇴🇲",
+            "paraguay": "🇵🇾",
+            "nigeria": "🇳🇬",
+            "peru": "🇵🇪",
+            "serbia": "🇷🇸",
+            "samoa": "🇼🇸",
+            "sierra-leone": "🇸🇱",
+            "congo": "🇨🇬",
+            "south-africa": "🇿🇦",
+            "sri-lanka": "🇱🇰",
+            "suriname": "🇸🇷",
+            "tanzania": "🇹🇿",
+            "tunisia": "🇹🇳",
+            "turkey": "🇹🇷",
+            "united-arab-emirates": "🇦🇪",
+            "uganda": "🇺🇬",
+            "uzbekistan": "🇺🇿",
+            "uruguay": "🇺🇾",
+            "angola": "🇦🇴",
+            "greenland": "🇬🇱",
+            "haiti": "🇭🇹",
+            "bhutan": "🇧🇹",
+            "monaco": "🇲🇨",
+            "libya": "🇱🇾",
+            "australia": "🇦🇺",
+            "cote-divoire": "🇨🇮",
+            "antigua-and-barbuda": "🇦🇬",
+            "azerbaijan": "🇦🇿",
+            "belgium": "🇧🇪",
+            "bulgaria": "🇧🇬",
+            "cambodia": "🇰🇭",
+            "croatia": "🇭🇷",
+            "cyprus": "🇨🇾",
+            "czech-republic": "🇨🇿",
+            "chad": "🇹🇩",
+            "faroe-islands": "🇫🇴",
+            "denmark": "🇩🇰",
+            "estonia": "🇪🇪",
+            "finland": "🇫🇮",
+            "eswatini": "🇸🇿",
+            "guam": "🇬🇺",
+            "greece": "🇬🇷",
+            "hungary": "🇭🇺",
+            "french-guiana": "🇬🇫",
+            "iceland": "🇮🇸",
+            "french-polynesia": "🇵🇫",
+            "gabon": "🇬🇦",
+            "guadeloupe": "🇬🇵",
+            "indonesia": "🇮🇩",
+            "ireland": "🇮🇪",
+            "lithuania": "🇱🇹",
+            "laos": "🇱🇦",
+            "liechtenstein": "🇱🇮",
+            "kenya": "🇰🇪",
+            "luxembourg": "🇱🇺",
+            "macao": "🇲🇴",
+            "netherlands": "🇳🇱",
+            "moldova": "🇲🇩",
+            "nepal": "🇳🇵",
+            "malta": "🇲🇹",
+            "malawi": "🇲🇼",
+            "niger": "🇳🇪",
+            "philippines": "🇵🇭",
+            "north-macedonia": "🇲🇰",
+            "norway": "🇳🇴",
+            "panama": "🇵🇦",
+            "qatar": "🇶🇦",
+            "saudi-arabia": "🇸🇦",
+            "poland": "🇵🇱",
+            "portugal": "🇵🇹",
+            "romania": "🇷🇴",
+            "russia": "🇷🇺",
+            "senegal": "🇸🇳",
+            "seychelles": "🇸🇨",
+            "singapore": "🇸🇬",
+            "slovakia": "🇸🇰",
+            "south-korea": "🇰🇷",
+            "slovenia": "🇸🇮",
+            "spain": "🇪🇸",
+            "thailand": "🇹🇭",
+            "sweden": "🇸🇪",
+            "switzerland": "🇨🇭",
+            "vietnam": "🇻🇳",
+            "ukraine": "🇺🇦",
+            "united-kingdom": "🇬🇧",
+            "kuwait": "🇰🇼",
+            "reunion": "🇷🇪",
+            "zambia": "🇿🇲",
+            "aukus-3-countries": "🌐",
+            "central-asia-4-areas": "🌏",
+            "europe-35-areas": "🌍",
+            "ireland-slovenia": "🇮🇪",
+            "ireland-uk": "🇮🇪",
+            "japan-south-korea": "🌏",
+            "martinique": "🇲🇶",
+            "mayotte": "🇾🇹",
+            "saint-barthelemy": "🇧🇱",
+            "saint-martin": "🇲🇫",
+            "san-marino": "🇸🇲",
+            "vatican-city": "🇻🇦",
+            "china": "🇨🇳",
+            "united-states": "🇺🇸",
+            "austria": "🇦🇹",
+            "mexico": "🇲🇽",
+            "malaysia": "🇲🇾",
+            "canada": "🇨🇦",
+            "north-america-3-areas": "🌎"
+};
+
+        function slugFromUrl(url) {
+            return url.replace(/\/$/, '').split('/').pop().replace(/-esim$/, '');
+        }
+
+        function formatDestinationName(slug) {
+            const specialNames = {
+                'usa-canada': 'USA + Canada',
+                'ireland-uk': 'Ireland + UK',
+                'china-mainland-hk-macao': 'China Mainland + HK + Macao',
+                'china-mainland-japan-south-korea': 'China Mainland + Japan + South Korea',
+                'singapore-malaysia-thailand': 'Singapore + Malaysia + Thailand',
+                'singapore-malaysia-vietnam-thailand-indonesia': 'Singapore + Malaysia + Vietnam + Thailand + Indonesia',
+                'singapore-malaysia': 'Singapore + Malaysia',
+                'australia-new-zealand': 'Australia + New Zealand',
+                'middle-east-north-africa': 'Middle East + North Africa',
+                'gulf-cooperation-council': 'Gulf Cooperation Council',
+                'cote-divoire': "Côte d'Ivoire",
+                'democratic-republic-of-the-congo': 'DR Congo',
+                'brunei-darussalam': 'Brunei Darussalam',
+                'aukus-3-countries': 'AUKUS (3 Countries)',
+                'north-america-3-areas': 'North America (3 Areas)',
+                'south-america-15-areas': 'South America (15 Areas)',
+                'africa-25-areas': 'Africa (25 Areas)',
+                'asia-20-areas': 'Asia (20 Areas)',
+                'europe-40-areas': 'Europe (40 Areas)',
+                'europe-35-areas': 'Europe (35 Areas)',
+                'europe-40-areas-morocco': 'Europe + Morocco (40 Areas)',
+                'caribbean-20-areas': 'Caribbean (20 Areas)',
+                'global-120-areas': 'Global (120 Areas)',
+                'central-asia-4-areas': 'Central Asia (4 Areas)'
+            };
+
+            if (specialNames[slug]) return specialNames[slug];
+
+            return slug
+                .replace(/-(\d+)-areas/g, ' ($1 Areas)')
+                .replace(/-(\d+)-countries/g, ' ($1 Countries)')
+                .split('-')
+                .map(word => {
+                    const acronyms = { hk: 'HK', uk: 'UK', uae: 'UAE', usa: 'USA', dr: 'DR' };
+                    return acronyms[word] || word.charAt(0).toUpperCase() + word.slice(1);
+                })
+                .join(' ')
+                .replace(/ \(/g, ' (');
+        }
+
+        function flagForDestination(slug, name) {
+            if (DESTINATION_FLAGS[slug]) return DESTINATION_FLAGS[slug];
+            if (name.includes('Europe') || name.includes('Africa') || name.includes('Balkans')) return '🌍';
+            if (name.includes('Asia')) return '🌏';
+            if (name.includes('America')) return '🌎';
+            if (name.includes('Caribbean')) return '🏝️';
+            if (name.includes('Middle East') || name.includes('Gulf')) return '🕌';
+            return '🌐';
+        }
+
+        const ALL_DESTINATIONS = COVERAGE_URLS.map(url => {
+            const slug = slugFromUrl(url);
+            const name = formatDestinationName(slug);
+            return { name, flag: flagForDestination(slug, name), url };
+        });
 
         // Sort alphabetically
         ALL_DESTINATIONS.sort((a, b) => a.name.localeCompare(b.name));
