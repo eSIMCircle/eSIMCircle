@@ -216,6 +216,7 @@ body.layout-7 .plan-card .btn{margin-top:0}
  body.layout-7 .plan-card{grid-template-columns:1fr}
 }
 </style>
+<script id="articleSchema" type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Perth eSIM Guide: Best Data Plans for Travelers","description":"Perth eSIM Guide: Best Data Plans for Travelers. Compare eSIMCircle Australia eSIM plans, prices, setup tips, top-up options, FLEX365 daily data, instant email delivery, and practical travel connectivity advice.","author":{"@type":"Organization","name":"Orange Route Travel Editors"},"publisher":{"@type":"Organization","name":"Orange Route Media"},"datePublished":"2026-06-12","dateModified":"2026-06-12","mainEntityOfPage":{"@type":"WebPage","@id":"https://esimcircle.netlify.app/gl/australia-esim/perth-esim-guide.html"},"articleBody":"Skip to content eSIM Circle Australia Plans FAQ Guide: Best Data Plans for Travelers. Perth eSIM Guide: Best Data Plans for Travelers. Compare eSIMCircle Australia eSIM plans, prices, setup tips, top-up options, FLEX365 daily data, instant email delivery, and practical travel connectivity advice.. → Compare plans Quick Australia eSIM takeaways. Instant email delivery after purchase.. No KYC, contracts, or paperwork.. Standard and FLEX365 daily plan options.. Ready to get mobile data for Australia?. Browse eSIMCircle Australia plans and choose Standard fixed data or FLEX365 daily data.. → FAQ Practical FAQs. Answers to common questions travelers ask before buying and using an Australia eSIM.. More Australia eSIM resources. Continue researching practical Australia mobile data topics with related guides.. © eSIMCircle travel eSIM resources. This page promotes eSIMCircle Australia eSIM plans. Visit eSIMCircle.com"}</script>
 </head>
 <body class="layout-1">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -659,6 +660,107 @@ function boot(){
   renderReadMore();
 }
 document.addEventListener('DOMContentLoaded', boot);
+</script>
+<script id="dynamicArticleSchemaInjector">
+(function(){
+  const ARTICLE_SCHEMA_DATE = '2026-06-12';
+  const ARTICLE_AUTHORS = [
+    {"@type":"Organization","name":"Orange Route Travel Editors"},
+    {"@type":"Organization","name":"Cloud Atlas Connectivity Team"},
+    {"@type":"Organization","name":"SignalMap Travel Desk"},
+    {"@type":"Organization","name":"RoamBridge Editorial Studio"},
+    {"@type":"Organization","name":"Nomad Packet Travel Guides"},
+    {"@type":"Organization","name":"Transit Signal Editorial Team"},
+    {"@type":"Organization","name":"Global Data Route Editors"}
+  ];
+  const ARTICLE_PUBLISHERS = [
+    {"@type":"Organization","name":"Orange Route Media"},
+    {"@type":"Organization","name":"Cloud Atlas Publishing"},
+    {"@type":"Organization","name":"SignalMap Guides"},
+    {"@type":"Organization","name":"RoamBridge Media"},
+    {"@type":"Organization","name":"Nomad Packet Publishing"},
+    {"@type":"Organization","name":"Transit Signal Press"},
+    {"@type":"Organization","name":"Global Data Route Library"}
+  ];
+  function variantIndex(){
+    const host = (window.location.hostname || '').toLowerCase();
+    if (host === 'esimcircle.netlify.app') return 0;
+    if (host === 'esimcircle.vercel.app') return 1;
+    if (host.includes('github.io')) return 2;
+    if (host.includes('codeberg.page')) return 3;
+    if (host.includes('bitbucket.io')) return 4;
+    if (host.includes('workers.dev')) return 5;
+    if (host.includes('gitlab.io')) return 6;
+    return 0;
+  }
+  function metaContent(selector){
+    const el = document.querySelector(selector);
+    return el ? (el.getAttribute('content') || '').trim() : '';
+  }
+  function canonicalUrl(){
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (window.location.protocol === 'http:' || window.location.protocol === 'https:') return window.location.href.split('#')[0];
+    return canonical ? canonical.href : window.location.href.split('#')[0];
+  }
+  function absoluteUrl(value){
+    if (!value) return '';
+    try { return new URL(value, window.location.href).href; } catch(e) { return value; }
+  }
+  function pageImage(){
+    const og = metaContent('meta[property="og:image"]');
+    if (og) return absoluteUrl(og);
+    const img = document.querySelector('main img[src], article img[src], body img[src]');
+    return img ? absoluteUrl(img.getAttribute('src')) : '';
+  }
+  function articleSummary(){
+    const root = document.querySelector('main') || document.querySelector('article') || document.body;
+    if (!root) return '';
+    const nodes = Array.from(root.querySelectorAll('h1,h2,h3,p,li,td,th'));
+    const seen = new Set();
+    const parts = [];
+    for (const node of nodes) {
+      let text = (node.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!text || text.length < 24) continue;
+      if (/^(buy now|view .* esim|read more|learn more|add to cart)$/i.test(text)) continue;
+      const key = text.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      parts.push(text);
+      if (parts.join(' ').length > 1800) break;
+    }
+    return parts.join(' ').slice(0, 1800).trim();
+  }
+  function buildArticleSchema(){
+    const idx = variantIndex();
+    const headline = (document.title || metaContent('meta[property="og:title"]') || '').trim();
+    const description = metaContent('meta[name="description"]') || metaContent('meta[property="og:description"]');
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: headline,
+      description: description,
+      author: ARTICLE_AUTHORS[idx],
+      publisher: ARTICLE_PUBLISHERS[idx],
+      datePublished: ARTICLE_SCHEMA_DATE,
+      dateModified: ARTICLE_SCHEMA_DATE,
+      mainEntityOfPage: {'@type':'WebPage','@id': canonicalUrl()},
+      articleBody: articleSummary()
+    };
+    const img = pageImage();
+    if (img) schema.image = [img];
+    let target = document.getElementById('articleSchema');
+    if (!target) {
+      target = document.createElement('script');
+      target.type = 'application/ld+json';
+      target.id = 'articleSchema';
+      document.head.appendChild(target);
+    }
+    target.textContent = JSON.stringify(schema);
+  }
+  function run(){ setTimeout(buildArticleSchema, 80); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();
 </script>
 </body>
 </html>
