@@ -10,7 +10,7 @@ eSIMCircle is built for modern travelers who need reliable mobile data without t
 
 ### 1. Flexible Top-Up Feature
 
-Running low on data during your trip? With eSIMCircle, you can easily add more data to eligible Standard Plans whenever you need it. This helps you stay connected for maps, messaging, ride-hailing, social media, work, and travel bookings without buying a new eSIM.
+Running low on data during your trip? With eSIMCircle, you can top up or extend any plan whenever you need it. This helps you stay connected for maps, messaging, ride-hailing, social media, work, and travel bookings without buying a new eSIM.
 
 ### 2. Unlimited Plans With Custom Duration
 
@@ -117,7 +117,7 @@ eSIMCircle is an online travel eSIM provider offering prepaid eSIM data plans fo
 
 ### Can I top up my eSIMCircle plan?
 
-Eligible Standard Plans support flexible top-up, allowing you to add more data during the active period of your plan.
+Yes. Every plan supports top-up and extension while it is active, so you can add data or days if your trip changes.
 
 ### Does eSIMCircle require KYC?
 
